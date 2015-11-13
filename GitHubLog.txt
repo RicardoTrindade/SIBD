@@ -1,0 +1,172 @@
+2015-11-13 14:22:57.0609|WARN|thread: 1|StandardUserErrors|Showing user error Failed to create a new commit.
+LibGit2Sharp.LockedFileException: The index is locked. This might be due to a concurrent or crashed process
+   em LibGit2Sharp.Core.Ensure.HandleError(Int32 result)
+   em LibGit2Sharp.Core.Proxy.git_index_write(IndexSafeHandle index)
+   em LibGit2Sharp.Index.Replace(TreeChanges changes)
+   em LibGit2Sharp.Repository.Reset(Commit commit, IEnumerable`1 paths, ExplicitPathsOptions explicitPathsOptions)
+   em GitHub.ExclusiveRepositoryConnection.<>c__DisplayClass13.<Commit>b__10()
+   em System.Reactive.Linq.ObservableImpl.Defer`1.Eval()
+   em System.Reactive.Linq.ObservableImpl.Defer`1._.Run()
+2015-11-13 14:21:47.4968|INFO|thread: 1|CommandLineHandler|Parsing command line arguments:
+2015-11-13 14:21:47.5128|INFO|thread: 1|CommandLineHandler|Unprocessed args: 
+2015-11-13 14:21:47.5128|INFO|thread: 1|AppInstance|Starting up as master instance of GitHub Desktop
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| #########################################
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| GitHub Desktop started. VERSION: 3.0.7.1
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| Build version: 3397ae47e4f173267a1ba9c8e6c39d345d5e5fbc
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***************************************
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***                                 ***
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***                                 ***
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***        Have a problem?          ***
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***    Email support@github.com     ***
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***      and include this file      ***
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***                                 ***
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***                                 ***
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ***************************************
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| OS Version: Windows NT 6.3.9600.0 amd64
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| CLR Version: 4.0.30319.34209
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| Current culture: pt-PT
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| Environment.CurrentDirectory: C:\Users\Ricardo\AppData\Local\Apps\2.0\CJTOXH13.ZP0\6TTTXW37.X2B\gith..tion_317444273a93ac29_0003.0000_12384c781d7f8ad4
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| currentProcess.StartInfo.WorkingDirectory: 
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| Terminal Services session: no
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| Location: C:\Users\Ricardo\AppData\Local\Apps\2.0\CJTOXH13.ZP0\6TTTXW37.X2B\gith..tion_317444273a93ac29_0003.0000_12384c781d7f8ad4\GitHub.exe
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| ActivationUri: https://github-windows.s3.amazonaws.com/GitHub.application
+2015-11-13 14:21:47.5269|INFO|thread: 5|StartupLogging| System.Environment.CommandLine: C:\Users\Ricardo\AppData\Local\Apps\2.0\CJTOXH13.ZP0\6TTTXW37.X2B\gith..tion_317444273a93ac29_0003.0000_12384c781d7f8ad4\GitHub.exe
+2015-11-13 14:21:47.5559|INFO|thread: 5|GitEnvironment|Process set up with this SSH Agent info: 860:/tmp/ssh-jqOVNpwedchJ/agent.8164
+2015-11-13 14:21:47.5559|INFO|thread: 5|GitEnvironment|PATH is C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\cmd;C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Users\Ricardo\AppData\Local\Apps\2.0\CJTOXH13.ZP0\6TTTXW37.X2B\gith..tion_317444273a93ac29_0003.0000_12384c781d7f8ad4;C:\Users\Ricardo\AppData\Local\GitHub\lfs-amd64_1.0.2;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\MATLAB\MATLAB Production Server\R2015a\runtime\win64;C:\Program Files\MATLAB\MATLAB Production Server\R2015a\bin;C:\Program Files\MATLAB\R2014a\runtime\win64;C:\Program Files\MATLAB\R2014a\bin;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\MATLAB\MATLAB Production Server\R2015a\polyspace\bin
+2015-11-13 14:21:47.5559|INFO|thread: 1|HardwareRenderingHelper|Your video card appears to support hardware rendering. If this isn't the case and you see glitches
+2015-11-13 14:21:47.5559|INFO|thread: 1|HardwareRenderingHelper|set the GH_FORCE_SW_RENDERING environment variable to 1
+2015-11-13 14:21:47.5559|INFO|thread: 5|StartupLogging| =====================================================
+2015-11-13 14:21:47.5559|INFO|thread: 5|StartupLogging|  DIAGNOSTICS                                        |
+2015-11-13 14:21:47.5559|INFO|thread: 5|StartupLogging| =====================================================
+2015-11-13 14:21:47.5559|INFO|thread: 5|StartupLogging| Git Extracted: 'True:
+2015-11-13 14:21:47.5559|INFO|thread: 5|StartupLogging| PortableGit Dir Exists: 'C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad'
+2015-11-13 14:21:47.5699|INFO|thread: 5|StartupLogging| Git Executable Exists: 'C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\git.exe'
+2015-11-13 14:21:47.5699|INFO|thread: 5|StartupLogging| ----------------------------------------------------
+2015-11-13 14:21:47.5699|INFO|thread: 5|StartupLogging| PATH: C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\MATLAB\MATLAB Production Server\R2015a\runtime\win64;C:\Program Files\MATLAB\MATLAB Production Server\R2015a\bin;C:\Program Files\MATLAB\R2014a\runtime\win64;C:\Program Files\MATLAB\R2014a\bin;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\MATLAB\MATLAB Production Server\R2015a\polyspace\bin
+2015-11-13 14:21:47.5853|INFO|thread: 5|StartupLogger|Proxy information: (None)
+2015-11-13 14:21:47.5853|INFO|thread: 5|StartupLogger|Couldn't fetch creds for proxy
+2015-11-13 14:21:47.6133|INFO|thread: 1|App|Checking whether application is network deployed: True
+2015-11-13 14:21:47.6133|INFO|thread: 1|App|Shortcut C:\Users\Ricardo\AppData\Local\GitHub\GitHub.appref-ms exists? True
+2015-11-13 14:21:47.6483|INFO|thread: 1|ClickOnceAppIconHelper|Updating registry with our application icon 'C:\Users\Ricardo\AppData\Local\Apps\2.0\CJTOXH13.ZP0\6TTTXW37.X2B\gith..tion_317444273a93ac29_0003.0000_12384c781d7f8ad4\Images\App.ico'
+2015-11-13 14:21:48.1597|INFO|thread: 5|PortablePackageManager|Already extracted PortableGit.7z, returning 100%
+2015-11-13 14:21:48.2217|INFO|thread: 5|MsysGitCertificateInstaller|Found certificate cache, loaded 162 certificates
+2015-11-13 14:21:48.2217|INFO|thread: 5|MsysGitCertificateInstaller|Created certificate bundle with 178 entries
+2015-11-13 14:21:48.3941|INFO|thread: 5|StartupSequence|Took 719ms to Update certificate bundle from system store
+2015-11-13 14:21:49.4939|INFO|thread: 8|AsyncReaderWriterLock|Acquiring exclusive scheduler for operation 1 at RepositoryModel.cs:1489
+2015-11-13 14:21:49.4939|INFO|thread: 5|AsyncReaderWriterLock|Acquired exclusive scheduler for operation: 1 at RepositoryModel.cs:1489 after waiting 0.0017148s
+2015-11-13 14:21:49.5520|INFO|thread:13|AsyncReaderWriterLock|Released exclusive scheduler for operation: 1 at RepositoryModel.cs:1489 after blocking 0.0568106s
+2015-11-13 14:21:49.6370|INFO|thread: 1|CommandLineToolsExtractor|Portable Git and Git LFS are already extracted
+2015-11-13 14:21:49.6370|INFO|thread: 1|GitClient|Installing git lfs filters
+2015-11-13 14:21:49.6471|INFO|thread: 1|GitEnvironment|Process set up with this SSH Agent info: 860:/tmp/ssh-jqOVNpwedchJ/agent.8164
+2015-11-13 14:21:49.6471|INFO|thread: 1|GitEnvironment|PATH is C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\cmd;C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Users\Ricardo\AppData\Local\Apps\2.0\CJTOXH13.ZP0\6TTTXW37.X2B\gith..tion_317444273a93ac29_0003.0000_12384c781d7f8ad4;C:\Users\Ricardo\AppData\Local\GitHub\lfs-amd64_1.0.2;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Windows\System32
+2015-11-13 14:21:49.6471|INFO|thread: 1|ProcessWrapper|Starting: Process - FileName: 'C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\git.exe', Args: 'lfs init --force ', Working Directory: C:\Users\Ricardo\AppData\Local\Temp\
+2015-11-13 14:21:49.6841|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.ShellViewModel.
+2015-11-13 14:21:49.6841|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.DashboardViewModel.
+2015-11-13 14:21:52.5315|INFO|thread: 1|PortablePackageManager|Already extracted gitignore.7z, returning 100%
+2015-11-13 14:21:52.9868|WARN|thread: 8|LoginCache|Could not get login for host 'GitHub.HostAddress'
+System.Collections.Generic.KeyNotFoundException: The given key 'login:null' was not present in the cache.
+2015-11-13 14:21:54.0084|INFO|thread: 1|RepositoryHost|Log in from cache for login 'RicardoTrindade' to host 'https://api.github.com/' SUCCEEDED
+2015-11-13 14:21:54.0304|INFO|thread:27|ApplicationShellInitializer|Running post login tasks. ~/.gitconfig is set up with user.name = 'trindax19' and user.email = 'ricardo.trindade743@gmail.com'
+2015-11-13 14:21:54.0444|INFO|thread:27|SSHKeyHelper|ssh-agent already running
+2015-11-13 14:21:54.0444|INFO|thread:27|PortablePackageManager|Already extracted lfs-amd64.7z, returning 100%
+2015-11-13 14:21:54.0544|INFO|thread:27|GitEnvironment|Process set up with this SSH Agent info: 860:/tmp/ssh-jqOVNpwedchJ/agent.8164
+2015-11-13 14:21:54.0544|INFO|thread:27|GitEnvironment|PATH is C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\cmd;C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Users\Ricardo\AppData\Local\Apps\2.0\CJTOXH13.ZP0\6TTTXW37.X2B\gith..tion_317444273a93ac29_0003.0000_12384c781d7f8ad4;C:\Users\Ricardo\AppData\Local\GitHub\lfs-amd64_1.0.2;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Windows\System32
+2015-11-13 14:21:54.0734|INFO|thread:27|ProcessWrapper|Starting: Process - FileName: 'C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\ssh-add.exe', Args: '"C:\Users\Ricardo\.ssh\github_rsa"', Working Directory: C:\Users\Ricardo\AppData\Local\Temp\
+2015-11-13 14:21:54.6132|INFO|thread:14|DashboardViewModel|Selected repository 'RicardoTrindade/SIBDProject2'
+2015-11-13 14:21:54.6393|INFO|thread:14|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 2 at GitClient.cs:627
+2015-11-13 14:21:54.6393|INFO|thread:13|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 2 at GitClient.cs:627 after waiting 0.0011191s
+2015-11-13 14:21:54.6393|INFO|thread:14|AsyncReaderWriterLock|Acquiring exclusive scheduler for operation 3 at GitClient.cs:605
+2015-11-13 14:21:54.6573|INFO|thread:30|AsyncReaderWriterLock|Released concurrent scheduler for operation: 2 at GitClient.cs:627 after blocking 0.0170556s
+2015-11-13 14:21:54.6573|INFO|thread:13|AsyncReaderWriterLock|Acquired exclusive scheduler for operation: 3 at GitClient.cs:605 after waiting 0.0161302s
+2015-11-13 14:21:54.8014|INFO|thread: 4|SSHKeyHelper|Found existing SSH key pair
+2015-11-13 14:21:55.1866|INFO|thread:13|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 4 at GitClient.cs:622
+2015-11-13 14:21:55.2677|INFO|thread:13|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 5 at GitClient.cs:222
+2015-11-13 14:21:55.2677|INFO|thread:13|DashboardViewModel|Took 633ms to Create RepositoryViewModel for location C:\Users\Ricardo\Documents\GitHub\SIBDProject2
+2015-11-13 14:21:55.2677|INFO|thread:13|AsyncReaderWriterLock|Released exclusive scheduler for operation: 3 at GitClient.cs:605 after blocking 0.611748s
+2015-11-13 14:21:55.2767|INFO|thread:13|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 4 at GitClient.cs:622 after waiting 0.0899914s
+2015-11-13 14:21:55.2767|INFO|thread:30|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 5 at GitClient.cs:222 after waiting 0.0092163s
+2015-11-13 14:21:55.2767|INFO|thread:30|GitClient|Loading commits for repo: C:\Users\Ricardo\Documents\GitHub\SIBDProject2
+2015-11-13 14:21:55.3107|INFO|thread:13|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 6 at RepositoryViewModel.cs:325
+2015-11-13 14:21:55.3107|INFO|thread: 4|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 6 at RepositoryViewModel.cs:325 after waiting 0.0012962s
+2015-11-13 14:21:55.3107|INFO|thread:13|AsyncReaderWriterLock|Released concurrent scheduler for operation: 4 at GitClient.cs:622 after blocking 0.0370993s
+2015-11-13 14:21:55.3317|INFO|thread:30|ConcurrentRepositoryConnection|Loaded '2' commits for repo: C:\Users\Ricardo\Documents\GitHub\SIBDProject2\.
+2015-11-13 14:21:55.3437|INFO|thread:30|AsyncReaderWriterLock|Released concurrent scheduler for operation: 5 at GitClient.cs:222 after blocking 0.067038s
+2015-11-13 14:21:55.3818|INFO|thread: 8|AsyncReaderWriterLock|Released concurrent scheduler for operation: 6 at RepositoryViewModel.cs:325 after blocking 0.0694816s
+2015-11-13 14:21:55.4668|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 7 at GitClient.cs:199
+2015-11-13 14:21:55.4668|INFO|thread:17|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 7 at GitClient.cs:199 after waiting 0.0001009s
+2015-11-13 14:21:55.4668|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 8 at RepositoryModel.cs:596
+2015-11-13 14:21:55.4668|INFO|thread:29|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 8 at RepositoryModel.cs:596 after waiting 6.79E-05s
+2015-11-13 14:21:55.4939|INFO|thread: 5|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 9 at RepositoryModel.cs:596
+2015-11-13 14:21:55.4939|INFO|thread: 4|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 9 at RepositoryModel.cs:596 after waiting 2.99E-05s
+2015-11-13 14:21:55.4939|INFO|thread:13|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 10 at GitClient.cs:288
+2015-11-13 14:21:55.4939|INFO|thread: 5|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 10 at GitClient.cs:288 after waiting 0.0001158s
+2015-11-13 14:21:55.5119|INFO|thread:13|AsyncReaderWriterLock|Released concurrent scheduler for operation: 8 at RepositoryModel.cs:596 after blocking 0.0437463s
+2015-11-13 14:21:55.5119|INFO|thread:15|AsyncReaderWriterLock|Released concurrent scheduler for operation: 9 at RepositoryModel.cs:596 after blocking 0.018194s
+2015-11-13 14:21:55.5119|INFO|thread:16|GitEnvironment|Process set up with this SSH Agent info: 860:/tmp/ssh-jqOVNpwedchJ/agent.8164
+2015-11-13 14:21:55.5119|INFO|thread:16|GitEnvironment|PATH is C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\cmd;C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Users\Ricardo\AppData\Local\Apps\2.0\CJTOXH13.ZP0\6TTTXW37.X2B\gith..tion_317444273a93ac29_0003.0000_12384c781d7f8ad4;C:\Users\Ricardo\AppData\Local\GitHub\lfs-amd64_1.0.2;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Windows\System32
+2015-11-13 14:21:55.5119|INFO|thread:16|ProcessWrapper|Starting: Process - FileName: 'C:\Users\Ricardo\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\git.exe', Args: 'status --untracked-files=all --porcelain -z ', Working Directory: C:\Users\Ricardo\Documents\GitHub\SIBDProject2\
+2015-11-13 14:21:55.5259|INFO|thread: 8|AsyncReaderWriterLock|Released concurrent scheduler for operation: 7 at GitClient.cs:199 after blocking 0.0585987s
+2015-11-13 14:21:55.5859|INFO|thread:29|ConcurrentRepositoryConnection|Took 31ms to git status
+2015-11-13 14:21:55.5859|INFO|thread:29|ConcurrentRepositoryConnection|Took 32ms to git status and parse output
+2015-11-13 14:21:55.6159|INFO|thread:29|NewCommitViewModel|Took 118ms to load files for C:\Users\Ricardo\Documents\GitHub\SIBDProject2
+2015-11-13 14:21:55.6159|INFO|thread:29|AsyncReaderWriterLock|Released concurrent scheduler for operation: 10 at GitClient.cs:288 after blocking 0.1184474s
+2015-11-13 14:21:55.8061|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 11 at GitClient.cs:610
+2015-11-13 14:21:55.8061|INFO|thread: 4|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 11 at GitClient.cs:610 after waiting 3.63E-05s
+2015-11-13 14:21:55.8061|INFO|thread: 5|AsyncReaderWriterLock|Released concurrent scheduler for operation: 11 at GitClient.cs:610 after blocking 0.0041533s
+2015-11-13 14:21:55.9732|INFO|thread: 4|BackgroundFetcher|Got a refresh period for C:\Users\Ricardo\Documents\GitHub\SIBDProject2\.git of 300 seconds
+2015-11-13 14:21:55.9752|INFO|thread: 4|BackgroundFetcher|Added a delay for C:\Users\Ricardo\Documents\GitHub\SIBDProject2\.git of 9990 milliseconds
+2015-11-13 14:21:56.3855|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 12 at BranchesViewModel.cs:532
+2015-11-13 14:21:56.3855|INFO|thread:13|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 12 at BranchesViewModel.cs:532 after waiting 9.15E-05s
+2015-11-13 14:21:56.3855|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 13 at RepositoryViewModel.cs:325
+2015-11-13 14:21:56.3855|INFO|thread: 5|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 13 at RepositoryViewModel.cs:325 after waiting 5E-05s
+2015-11-13 14:21:56.4095|INFO|thread:29|AsyncReaderWriterLock|Released concurrent scheduler for operation: 12 at BranchesViewModel.cs:532 after blocking 0.023585s
+2015-11-13 14:21:56.4595|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 14 at GitClient.cs:622
+2015-11-13 14:21:56.4595|INFO|thread:29|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 14 at GitClient.cs:622 after waiting 3.16E-05s
+2015-11-13 14:21:56.4595|INFO|thread:17|AsyncReaderWriterLock|Released concurrent scheduler for operation: 14 at GitClient.cs:622 after blocking 0.0087001s
+2015-11-13 14:21:56.4595|INFO|thread: 1|NewCommitViewModel|Took 855ms to render file list for C:\Users\Ricardo\Documents\GitHub\SIBDProject2
+2015-11-13 14:21:56.4595|INFO|thread: 1|NewPullRequestViewModel|No matching pull request found, clearing selection...
+2015-11-13 14:21:56.4755|INFO|thread:15|AsyncReaderWriterLock|Released concurrent scheduler for operation: 13 at RepositoryViewModel.cs:325 after blocking 0.0834637s
+2015-11-13 14:21:56.4755|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 15 at RepositoryViewModel.cs:325
+2015-11-13 14:21:56.4755|INFO|thread: 4|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 15 at RepositoryViewModel.cs:325 after waiting 3.63E-05s
+2015-11-13 14:21:56.4755|INFO|thread: 1|AsyncReaderWriterLock|Released concurrent scheduler for operation: 15 at RepositoryViewModel.cs:325 after blocking 9.8E-06s
+2015-11-13 14:21:56.4755|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 16 at RepositoryViewModel.cs:325
+2015-11-13 14:21:56.4755|INFO|thread:13|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 16 at RepositoryViewModel.cs:325 after waiting 1.49E-05s
+2015-11-13 14:21:56.5266|INFO|thread: 5|AsyncReaderWriterLock|Released concurrent scheduler for operation: 16 at RepositoryViewModel.cs:325 after blocking 0.0382612s
+2015-11-13 14:21:56.5456|INFO|thread:16|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 17 at GitClient.cs:496
+2015-11-13 14:21:56.5456|INFO|thread:29|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 17 at GitClient.cs:496 after waiting 7.82E-05s
+2015-11-13 14:21:56.5456|INFO|thread: 5|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 18 at GitClient.cs:496
+2015-11-13 14:21:56.5456|INFO|thread: 8|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 18 at GitClient.cs:496 after waiting 1.24E-05s
+2015-11-13 14:21:56.6217|INFO|thread:15|AsyncReaderWriterLock|Released concurrent scheduler for operation: 17 at GitClient.cs:496 after blocking 0.0752536s
+2015-11-13 14:21:56.6217|INFO|thread: 4|AsyncReaderWriterLock|Released concurrent scheduler for operation: 18 at GitClient.cs:496 after blocking 0.0741879s
+2015-11-13 14:21:57.7136|INFO|thread: 8|SoftwareUpdateViewModel|Checking for new version
+2015-11-13 14:21:58.0847|INFO|thread: 1|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 19 at RepositoryViewModel.cs:744
+2015-11-13 14:21:58.0847|INFO|thread:13|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 19 at RepositoryViewModel.cs:744 after waiting 0.0001325s
+2015-11-13 14:21:58.1137|INFO|thread: 4|AsyncReaderWriterLock|Released concurrent scheduler for operation: 19 at RepositoryViewModel.cs:744 after blocking 0.0282537s
+2015-11-13 14:22:27.9831|INFO|thread:16|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 20 at GitClient.cs:496
+2015-11-13 14:22:27.9831|INFO|thread:29|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 20 at GitClient.cs:496 after waiting 5.21E-05s
+2015-11-13 14:22:28.0181|INFO|thread:16|AsyncReaderWriterLock|Released concurrent scheduler for operation: 20 at GitClient.cs:496 after blocking 0.0346788s
+2015-11-13 14:22:32.8139|INFO|thread:17|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 21 at GitClient.cs:496
+2015-11-13 14:22:32.8139|INFO|thread: 4|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 21 at GitClient.cs:496 after waiting 8.8E-05s
+2015-11-13 14:22:32.8139|INFO|thread:15|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 22 at GitClient.cs:496
+2015-11-13 14:22:32.8139|INFO|thread: 5|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 22 at GitClient.cs:496 after waiting 0.0001009s
+2015-11-13 14:22:32.8219|INFO|thread:16|AsyncReaderWriterLock|Released concurrent scheduler for operation: 22 at GitClient.cs:496 after blocking 0.0065105s
+2015-11-13 14:22:32.8219|INFO|thread: 8|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 23 at GitClient.cs:496
+2015-11-13 14:22:32.8219|INFO|thread:29|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 23 at GitClient.cs:496 after waiting 4.57E-05s
+2015-11-13 14:22:32.8590|INFO|thread: 8|AsyncReaderWriterLock|Released concurrent scheduler for operation: 23 at GitClient.cs:496 after blocking 0.0361229s
+2015-11-13 14:22:32.8590|INFO|thread:29|AsyncReaderWriterLock|Acquiring concurrent scheduler for operation 24 at GitClient.cs:496
+2015-11-13 14:22:32.8590|INFO|thread: 5|AsyncReaderWriterLock|Acquired concurrent scheduler for operation: 24 at GitClient.cs:496 after waiting 1.88E-05s
+2015-11-13 14:22:32.8670|INFO|thread:17|AsyncReaderWriterLock|Released concurrent scheduler for operation: 21 at GitClient.cs:496 after blocking 0.0524862s
+2015-11-13 14:22:32.8670|INFO|thread:29|AsyncReaderWriterLock|Released concurrent scheduler for operation: 24 at GitClient.cs:496 after blocking 0.018244s
+2015-11-13 14:22:56.9949|INFO|thread: 1|AsyncReaderWriterLock|Acquiring exclusive scheduler for operation 25 at ICommitCreator.cs:89
+2015-11-13 14:22:56.9949|INFO|thread:17|AsyncReaderWriterLock|Acquired exclusive scheduler for operation: 25 at ICommitCreator.cs:89 after waiting 6.97E-05s
+2015-11-13 14:22:56.9949|INFO|thread: 4|ExclusiveRepositoryConnection|Creating Commit
+2015-11-13 14:22:57.0249|WARN|thread: 4|RepositoryModel|Failed creating exclusive connection for ICommitCreator.cs:89
+LibGit2Sharp.LockedFileException: The index is locked. This might be due to a concurrent or crashed process
+   em LibGit2Sharp.Core.Ensure.HandleError(Int32 result)
+   em LibGit2Sharp.Core.Proxy.git_index_write(IndexSafeHandle index)
+   em LibGit2Sharp.Index.Replace(TreeChanges changes)
+   em LibGit2Sharp.Repository.Reset(Commit commit, IEnumerable`1 paths, ExplicitPathsOptions explicitPathsOptions)
+   em GitHub.ExclusiveRepositoryConnection.<>c__DisplayClass13.<Commit>b__10()
+   em System.Reactive.Linq.ObservableImpl.Defer`1.Eval()
+   em System.Reactive.Linq.ObservableImpl.Defer`1._.Run()
+2015-11-13 14:22:57.0249|INFO|thread: 4|AsyncReaderWriterLock|Released exclusive scheduler for operation: 25 at ICommitCreator.cs:89 after blocking 0.03351s
