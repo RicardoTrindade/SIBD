@@ -118,28 +118,28 @@ insert into PAN values ('pan004.healthunit.org',968873789);
 insert into PAN values ('pan005.healthunit.org',916267734);
 insert into PAN values ('pan006.healthunit.org',917687839);	
 
-insert into Device values ('SS-100001','Samsung','Blood Pressure Meter');
-insert into Device values ('PS-000001','Philips','Blood Pressure Meter');
-insert into Device values ('SiS-58956','Siemens','Scale');	
-insert into Device values ('PA-26548','Philips','Rotating Pump');
-insert into Device values ('SA-6888558','Samsung','Insulin Pump');
-insert into Device values ('SiS-6988524','Siemens','Glucose Meter');
-insert into Device values ('SiS-784486','Siemens','Heart Rate Monitor');
-insert into Device values ('PS-85775','Philips','Heart Rate Monitor');
-insert into Device values ('PS-12387','Philips', 'Scale');
-insert into Device values ('PA-75254','Philips','Rotating Pump');	
+insert into Device values ('S-100001','Samsung','Blood Pressure Meter');
+insert into Device values ('S-000001','Philips','Blood Pressure Meter');
+insert into Device values ('S-58956','Siemens','Scale');	
+insert into Device values ('A-26548','Philips','Rotating Pump');
+insert into Device values ('A-6888558','Samsung','Insulin Pump');
+insert into Device values ('S-6988524','Siemens','Glucose Meter');
+insert into Device values ('S-784486','Siemens','Heart Rate Monitor');
+insert into Device values ('S-85775','Philips','Heart Rate Monitor');
+insert into Device values ('S-12387','Philips', 'Scale');
+insert into Device values ('A-75254','Philips','Rotating Pump');	
 
-insert into Sensor values ('SS-100001','Samsung','mmHg');
-insert into Sensor values ('PS-000001','Philips','mmHg');
-insert into Sensor values ('SiS-58956','Siemens','Kg');
-insert into Sensor values ('SiS-6988524','Siemens','mg/dL');
-insert into Sensor values ('SiS-784486','Siemens','BPM');
-insert into Sensor values ('PS-85775','Philips','BPM');
-insert into Sensor values ('PS-12387','Philips','Kg');	
+insert into Sensor values ('S-100001','Samsung','mmHg');
+insert into Sensor values ('S-000001','Philips','mmHg');
+insert into Sensor values ('S-58956','Siemens','Kg');
+insert into Sensor values ('S-6988524','Siemens','mg/dL');
+insert into Sensor values ('S-784486','Siemens','BPM');
+insert into Sensor values ('S-85775','Philips','BPM');
+insert into Sensor values ('S-12387','Philips','Kg');	
 
-insert into Actuator values ('PA-26548','Philips','RPM');
-insert into Actuator values ('SA-6888558','Samsung','mmol/L');
-insert into Actuator values ('PA-75254','Philips','RPM');
+insert into Actuator values ('A-26548','Philips','RPM');
+insert into Actuator values ('A-6888558','Samsung','mmol/L');
+insert into Actuator values ('A-75254','Philips','RPM');
 
 insert into Municipality values ('10001','Lisboa');
 insert into Municipality values ('20001','Madeira');
@@ -154,22 +154,22 @@ insert into Period values ('1993-09-19 08:30:50','2011-09-15 12:30:00');
 insert into Period values ('2015-04-01 08:00:00','2015-11-25 08:00:00');	
 
 	
-insert into Reading values ('PS-12387','Philips','2014-10-17 07:30:00', 130);
-insert into Reading values ('PS-12387','Philips','2014-12-17 07:30:00',  90);
-insert into Reading values ('PS-12387','Philips','2015-01-05 07:30:00', 180);
-insert into Reading values ('SiS-6988524','Siemens','2015-06-21 08:00:00',70);
-insert into Reading values ('SiS-6988524','Siemens','2015-06-21 14:00:00',250);
+insert into Reading values ('S-12387','Philips','2014-10-17 07:30:00', 130);
+insert into Reading values ('S-12387','Philips','2014-12-17 07:30:00',  90);
+insert into Reading values ('S-12387','Philips','2015-01-05 07:30:00', 180);
+insert into Reading values ('S-6988524','Siemens','2015-06-21 08:00:00',70);
+insert into Reading values ('S-6988524','Siemens','2015-06-21 14:00:00',250);
 -- readings do zé
-insert into Reading values ('SS-100001','Samsung','2015-05-25 08:00:00',8);
-insert into Reading values ('SS-100001', 'Samsung' ,'2015-05-26 08:00:00', 9);
-insert into Reading values ('SS-100001', 'Samsung' ,'2015-06-14 08:00:00',9.2);
-insert into Reading values ('SS-100001','Samsung' ,'2015-04-20 08:00:00', 10); -- este não deve aparecer na query 3a	
+insert into Reading values ('S-100001','Samsung','2015-05-25 08:00:00',8);
+insert into Reading values ('S-100001', 'Samsung' ,'2015-05-26 08:00:00', 9);
+insert into Reading values ('S-100001', 'Samsung' ,'2015-06-14 08:00:00',9.2);
+insert into Reading values ('S-100001','Samsung' ,'2015-04-20 08:00:00', 10); -- este não deve aparecer na query 3a	
 -- 
 
 
-insert into Setting values ('PA-26548','Philips','2014-05-03 09:40:00',2500);
-insert into Setting values ('SA-6888558','Samsung','2015-06-21 14:01:00',15);
-insert into Setting values ('SA-6888558','Samsung','2015-06-21 14:05:00',6);	
+insert into Setting values ('A-26548','Philips','2014-05-03 09:40:00',2500);
+insert into Setting values ('A-6888558','Samsung','2015-06-21 14:01:00',15);
+insert into Setting values ('A-6888558','Samsung','2015-06-21 14:05:00',6);	
 
 
 
@@ -179,6 +179,6 @@ insert into Wears values ('2015-04-01 08:00:00','2015-11-25 08:00:00',13998411,'
 insert into Lives values ('1993-09-19 08:30:50','2011-09-15 12:30:00',14200440,'20001');
 insert into Lives values ('1993-07-17 12:50:00','2011-09-26 09:00:00',14075632,'40001');
 
-insert into Connects values ('2015-04-01 08:00:00','2015-11-25 08:00:00','SS-100001','Samsung','pan003.healthunit.org'); -- pan do zé
-insert into Connects values ('2014-09-01 14:00:00','2014-12-25 00:00:00','PS-000001','Philips','pan002.healthunit.org');	
+insert into Connects values ('2015-04-01 08:00:00','2015-11-25 08:00:00','S-100001','Samsung','pan003.healthunit.org'); -- pan do zé
+insert into Connects values ('2014-09-01 14:00:00','2014-12-25 00:00:00','S-000001','Philips','pan002.healthunit.org');	
 	
