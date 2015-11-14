@@ -148,14 +148,22 @@ insert into Municipality values ('40001','Évora');
 
 insert into Period values ('2014-05-02 08:00:23','2014-06-02 23:59:59');
 insert into Period values ('2015-08-15 15:55:00','2015-10-12 18:26:01');
-insert into Period values ('1993-07-17 12:50:00','2011-09-26 09:00:00');
+insert into Period values ('1993-07-17 12:50:00','2016-09-26 09:00:00');
 insert into Period values ('2014-09-01 14:00:00','2014-12-25 00:00:00');
 insert into Period values ('1993-09-19 08:30:50','2011-09-15 12:30:00');
-insert into Period values ('2015-04-01 08:00:00','2015-11-25 08:00:00');	
+insert into Period values ('2015-04-01 08:00:00','2015-11-25 08:00:00');
+insert into Period values ('2015-09-01 14:00:00','2016-01-15 00:00:00');
+insert into Period values ('2015-08-16 16:20:00','2015-12-25 19:00:00');
+insert into Period values ('1994-03-18 12:00:00','2016-04-23 08:00:00');
+insert into Period values ('2015-09-01 14:00:00','2016-02-15 00:00:00');	
 
 	
-insert into Reading values ('PS-12387','Philips','2014-10-17 07:30:00', 130);
-insert into Reading values ('PS-12387','Philips','2014-12-17 07:30:00',  90);
+insert into Reading values ('PS-000001','Philips','2015-10-17 07:30:00', 130); 
+insert into Reading values ('PS-000001','Philips','2015-12-17 07:30:00',  90); 
+-- readings rick	
+insert into Reading values ('PS-85775','Philips', '2015-09-15 08:00:00',50);
+insert into Reading values ('PS-85775','Philips', '2015-09-15 09:00:00',70);
+-- reading suzi	
 insert into Reading values ('PS-12387','Philips','2015-01-05 07:30:00', 180);
 insert into Reading values ('SiS-6988524','Siemens','2015-06-21 08:00:00',70);
 insert into Reading values ('SiS-6988524','Siemens','2015-06-21 14:00:00',250);
@@ -167,18 +175,23 @@ insert into Reading values ('SS-100001','Samsung' ,'2015-04-20 08:00:00', 10); -
 -- 
 
 
-insert into Setting values ('PA-26548','Philips','2014-05-03 09:40:00',2500);
+insert into Setting values ('PA-26548','Philips','2015-06-03 09:40:00',2500);
+insert into Setting values ('PA-26548','Philips','2015-05-03 09:40:00',1500);
 insert into Setting values ('SA-6888558','Samsung','2015-06-21 14:01:00',15);
-insert into Setting values ('SA-6888558','Samsung','2015-06-21 14:05:00',6);	
+insert into Setting values ('SA-6888558','Samsung','2015-06-21 14:05:00',6);
+		
 
-
-
-insert into Wears values ('2015-08-15 15:55:00','2015-10-12 18:26:01',14075632,'pan002.healthunit.org');
+insert into Wears values ('2015-08-15 15:55:00','2015-10-12 18:26:01',14075632,'pan002.healthunit.org'); -- ricky with pan
+insert into Wears values ('2015-08-16 16:20:00','2015-12-25 19:00:00',13548484,'pan004.healthunit.org'); -- suzi	
 insert into Wears values ('2015-04-01 08:00:00','2015-11-25 08:00:00',13998411,'pan003.healthunit.org'); -- pan do zé
 
-insert into Lives values ('1993-09-19 08:30:50','2011-09-15 12:30:00',14200440,'20001');
-insert into Lives values ('1993-07-17 12:50:00','2011-09-26 09:00:00',14075632,'40001');
+insert into Lives values ('1993-09-19 08:30:50','2011-09-15 12:30:00', 14200440,'20001');
+insert into Lives values ('1993-07-17 12:50:00','2016-09-26 09:00:00', 14075632,'40001');  -- ricky
+insert into Lives values ('1994-03-18 12:00:00','2016-04-23 08:00:00', 13548484,'40001');  -- suzi
 
+insert into Connects values ('2015-04-01 08:00:00', '2015-11-25 08:00:00','PA-26548','Philips','pan003.healthunit.org'); -- pan do zé 
 insert into Connects values ('2015-04-01 08:00:00','2015-11-25 08:00:00','SS-100001','Samsung','pan003.healthunit.org'); -- pan do zé
-insert into Connects values ('2014-09-01 14:00:00','2014-12-25 00:00:00','PS-000001','Philips','pan002.healthunit.org');	
+insert into Connects values ('2015-09-01 14:00:00','2016-01-15 00:00:00','PS-000001','Philips','pan002.healthunit.org'); -- pan do ricky
+insert into Connects values ('2015-09-01 14:00:00','2016-02-15 00:00:00','PS-85775','Philips','pan004.healthunit.org'); -- pan da susi
+
 	
