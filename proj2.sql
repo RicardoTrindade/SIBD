@@ -137,29 +137,20 @@ insert into Sensor values ('S-784486','Siemens','BPM');
 insert into Sensor values ('S-85775','Philips','BPM');
 insert into Sensor values ('S-12387','Philips','Kg');	-- importante para 3c
 
-
 insert into Actuator values ('A-26548','Philips','RPM');
 insert into Actuator values ('A-6888558','Samsung','mmol/L');
 insert into Actuator values ('A-75254','Philips','RPM');
 
-insert into Municipality values ('10001','Lisboa');
-insert into Municipality values ('20001','Madeira');
-insert into Municipality values ('30001','Loures');
-insert into Municipality values ('40001','Évora');
+insert into Municipality values ('10001','Lisboa'); -- importante para 3c
+insert into Municipality values ('20001','Madeira'); -- importante para 3c
+insert into Municipality values ('30001','Loures'); -- importante para 3c
+insert into Municipality values ('40001','Évora'); -- importante para 3c
 
-insert into Period values ('2014-05-02 08:00:23','2014-06-02 23:59:59');
 insert into Period values ('2015-08-15 15:55:00','2015-10-12 18:26:01');
-insert into Period values ('1993-07-17 12:50:00','2016-09-26 09:00:00');
-insert into Period values ('2014-09-01 14:00:00','2014-12-25 00:00:00');
-insert into Period values ('1993-09-19 08:30:50','2011-09-15 12:30:00');
-insert into Period values ('2015-04-01 08:00:00','2015-11-25 08:00:00');
-insert into Period values ('2015-09-01 14:00:00','2016-01-15 00:00:00');
-insert into Period values ('2015-08-16 16:20:00','2015-12-25 19:00:00');
-insert into Period values ('1994-03-18 12:00:00','2016-04-23 08:00:00');
-insert into Period values ('2015-09-01 14:00:00','2016-02-15 00:00:00');
 insert into Period values ('1993-07-17 12:50:00','2017-09-26 09:00:00');
 insert into Period values ('2015-09-01 14:00:00','2015-12-25 00:00:00');
 insert into Period values ('1993-09-19 08:30:50','2017-09-15 12:30:00');
+insert into Period values ('2015-04-01 08:00:00','2015-11-25 08:00:00');
 insert into Period values ('2015-05-01 10:00:00','2015-12-11 12:00:00');	
 insert into Period values ('1999-09-10 11:00:00','2016-05-22 12:00:00');
 insert into Period values ('2015-05-20 12:00:00','2015-12-01 14:00:00');
@@ -171,30 +162,25 @@ insert into Period values ('2014-02-10 08:00:00','2014-09-10 08:00:00');
 insert into Period values ('2014-02-08 10:00:00','2014-05-20 10:00:00');
 insert into Period values ('2014-11-10 17:00:00','2014-12-15 18:00:00');
 insert into Period values ('2015-01-05 15:30:00','2015-03-10 10:00:00');
-insert into Period values ('2005-05-12 10:00:00','2016-05-15 19:30:00');	
+insert into Period values ('2005-05-12 10:00:00','2016-05-15 19:30:00');
 
-	
-insert into Reading values ('S-000001','Philips','2015-10-17 07:30:00', 130); 
-insert into Reading values ('S-000001','Philips','2015-12-17 07:30:00',  90); 
--- readings rick	
-insert into Reading values ('S-85775','Philips', '2015-09-15 08:00:00',50);
-insert into Reading values ('S-85775','Philips', '2015-09-15 09:00:00',70);
--- reading suzi	
-insert into Reading values ('S-12387','Philips','2015-01-05 07:30:00', 180);
+insert into Reading values ('S-12387','Philips','2014-10-17 07:30:00', 130);
 insert into Reading values ('S-12387','Philips','2014-12-17 07:30:00',  90);
+insert into Reading values ('S-12387','Philips','2015-01-05 07:30:00', 180);
+insert into Reading values ('S-100001','Siemens','2015-06-21 08:00:00',70);
+insert into Reading values ('S-100001','Siemens','2015-06-21 14:00:00',250);
 -- readings do zé
 insert into Reading values ('S-100001','Samsung','2015-05-25 08:00:00',8);
 insert into Reading values ('S-100001', 'Samsung' ,'2015-05-26 08:00:00', 9);
 insert into Reading values ('S-100001', 'Samsung' ,'2015-06-14 08:00:00',9.2);
 insert into Reading values ('S-100001','Samsung' ,'2015-04-20 08:00:00', 10); -- este não deve aparecer na query 3a	
 -- 
+-- devia acrescentar readings para as scales
 
-
-insert into Setting values ('A-26548','Philips','2015-06-03 09:40:00',2500);
-insert into Setting values ('A-26548','Philips','2015-05-03 09:40:00',1500);
+insert into Setting values ('A-26548','Philips','2014-05-03 09:40:00',2500);
 insert into Setting values ('A-6888558','Samsung','2015-06-21 14:01:00',15);
-insert into Setting values ('A-6888558','Samsung','2015-06-21 14:05:00',6);
-		
+insert into Setting values ('A-6888558','Samsung','2015-06-21 14:05:00',6);	
+
 
 insert into Wears values ('2014-05-10 08:00:00','2014-09-20 08:00:00',13548484,'pan001.healthunit.org'); -- importante para 3c
 insert into Wears values ('2015-09-01 14:00:00','2015-12-25 00:00:00',14075632,'pan002.healthunit.org'); -- importante para 3b
