@@ -1,7 +1,7 @@
  
 3b
 
-select m.nut4code, m.name
+select m.nut4code, m.name as municipality, count(l.patient) as number_of_devices
 from Wears as w, Lives as l, Municipality as m, PAN as pa, Connects as c
 where l.patient = w.patient
 and m.nut4code=l.muni
@@ -31,7 +31,7 @@ group by m.nut4code);
 3c
 
 
- select d.manufacturer 
+ select d.manufacturer as Manufacturer, count(m.nut4code) as Number_of_Scales, GROUP_CONCAT(m.name) as Municipalities 
  from Device as d, Connects as c, PAN as p, Wears as w, Lives as l,Municipality as m, Patient as pa
   where d.description='scale'  
   and c.pan=p.domain 
