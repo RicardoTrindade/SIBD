@@ -33,3 +33,22 @@ from Municipality as m Lives as l,Patient as p,Connects as c
 where c.manuf="Philips"
 and l.patient=p.number
 and m.nut4code=l.muni;
+
+-- Query para a 4a Readings
+
+Select r.value,s.units, r.datetime
+from Patient as p, Wears as w, PAN as pa, Connects as c, Device as d, Sensor as s, Reading as r
+where p.name = "José Portela"
+and p.number=w.patient
+and w.pan=pa.domain
+and pa.domain=c.pan
+and c.start=w.start
+and c.end=w.end
+and c.snum=d.serialnum
+and d.serialnum=s.snum
+and s.snum=r.snum
+and c.manuf=d.manufacturer
+and d.manufacturer=s.manuf
+and s.manuf=r.manuf
+and r.datetime>=c.start
+and r.datetime<=c.end;
