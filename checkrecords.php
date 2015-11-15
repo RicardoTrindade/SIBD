@@ -14,14 +14,22 @@
 
 	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
 
-	$sql = "SELECT r.value, s.units,r.datetime
-FROM Reading as r,Device as d natural join Sensor as s,Connects as c,Wears as w, Patient as p
-WHERE r.snum=d.serialnum
-AND d.serialnum=c.snum
-AND w.pan=c.pan
-AND w.patient=p.number
-AND p.name = '$name'
-AND d.serialnum=s.snum;";
+	$sql = "SELECT r.value,s.units, r.datetime
+	from Patient as p, Wears as w, PAN as pa, Connects as c, Device as d, Sensor as s, Reading as r
+	where p.name='$name'
+	AND p.number=w.patient
+	AND w.pan=pa.domain
+AND pa.domain=c.pan
+AND c.start=w.start
+AND c.end=w.end
+AND c.snum=d.serialnum
+AND d.serialnum=s.snum
+AND s.snum=r.snum
+AND c.manuf=d.manufacturer
+AND d.manufacturer=s.manuf
+AND s.manuf=r.manuf
+AND r.datetime>=c.start
+AND r.datetime<=c.end;";
 
 	echo("<p>Query: " . $sql . "</p>\n");
 
