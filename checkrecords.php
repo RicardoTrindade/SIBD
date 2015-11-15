@@ -19,17 +19,17 @@
 	where p.name='$name'
 	AND p.number=w.patient
 	AND w.pan=pa.domain
-AND pa.domain=c.pan
-AND c.start=w.start
-AND c.end=w.end
-AND c.snum=d.serialnum
-AND d.serialnum=s.snum
-AND s.snum=r.snum
-AND c.manuf=d.manufacturer
-AND d.manufacturer=s.manuf
-AND s.manuf=r.manuf
-AND r.datetime>=c.start
-AND r.datetime<=c.end;";
+	AND pa.domain=c.pan
+	AND c.start=w.start
+	AND c.end=w.end
+	AND c.snum=d.serialnum
+	AND d.serialnum=s.snum
+	AND s.snum=r.snum
+	AND c.manuf=d.manufacturer
+	AND d.manufacturer=s.manuf
+	AND s.manuf=r.manuf
+	AND r.datetime>=c.start
+	AND r.datetime<=c.end;";
 
 	echo("<p>Query: " . $sql . "</p>\n");
 
@@ -55,13 +55,16 @@ AND r.datetime<=c.end;";
 
 	
 	$sql2="SELECT s.value,a.units,s.datetime
-	FROM Setting as s, Device as d natural join Actuator as a, Connects as c, Wears as w,Patient as p
+	FROM Setting as s, Device as d, Actuator as a, Connects as c, Wears as w,Patient as p
 	WHERE s.snum=d.serialnum
 	and d.serialnum=c.snum
 	and w.pan=c.pan
 	and w.patient=p.number
 	and p.name='$name'
-	and d.serialnum=a.snum;";
+	and d.serialnum=a.snum
+	and c.start=w.start
+	and w.end=w.end;
+	";
 
 	$result = $connection->query($sql2);
 	
