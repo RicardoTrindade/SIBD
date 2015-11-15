@@ -165,7 +165,7 @@ insert into Period values ('2015-01-05 15:30:00','2015-03-10 10:00:00');
 insert into Period values ('2005-05-12 10:00:00','2016-05-15 19:30:00');
 
 insert into Reading values ('S-12387','Philips','2015-10-17 07:30:00', 130);
-insert into Reading values ('S-12387','Philips','2015-12-17 07:30:00',  90);
+insert into Reading values ('S-12387','Philips','2015-11-29 07:30:00',  90);
 insert into Reading values ('S-12387','Philips','2015-01-06 07:30:00', 180);
 insert into Reading values ('S-100001','Siemens','2015-06-21 08:00:00',70);
 insert into Reading values ('S-100001','Siemens','2015-06-21 14:00:00',250);
