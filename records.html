@@ -1,7 +1,13 @@
 <html>
 	<body>
 		<form action ="checkrecords.php" method="post">
-		<h3>Input patient name</h3>
+		<h3>Input patient name to check his readings and settings</h3>
+		<p> Patient name: <input type ="text" name ="name"/></p>
+		<p><input type="submit" value ="Submit"></p>
+		</form>
+
+		<form action ="checkdevices.php" method="post">
+		<h3>Input patient name to check the devices attached to his PAN</h3>
 		<p> Patient name: <input type ="text" name ="name"/></p>
 		<p><input type="submit" value ="Submit"></p>
 		</form>

@@ -31,7 +31,7 @@
 	AND r.datetime>=c.start
 	AND r.datetime<=c.end;";
 
-	echo("<p>Query: " . $sql . "</p>\n");
+	
 
 	$result = $connection->query($sql);
 	
