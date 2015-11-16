@@ -13,23 +13,25 @@ and d.description like'%Blood Pressure%'
 group by r.value;
 
 
- select m.nut4code, m.name as municipality, count(l.patient) as number_of_devices
-from Wears as w, Lives as l, Municipality as m, PAN as pa, Connects as c
+ select m.nut4code, m.name as municipality, count(l.patient) as number_of_devices,GROUP_CONCAT(c.snum)
+from Wears as w, Lives as l, Municipality as m, Connects as c
 where l.patient = w.patient
 and m.nut4code=l.muni
-and w.pan=pa.domain
-and pa.domain=c.pan
+and w.pan=c.pan
 and c.manuf="Philips"
-and w.end >= current_timestamp
-and w.start <= current_timestamp
+and current_timestamp<=w.end
+and current_timestamp>=w.start
+and w.start=c.start
+and w.end=c.end
 group by m.nut4code
 having count(l.patient) >= all( select count(l.patient)
-from Wears as w, Lives as l, Municipality as m, PAN as pa, Connects as c
+from Wears as w, Lives as l, Municipality as m, Connects as c
 where l.patient = w.patient
 and m.nut4code=l.muni
-and w.pan=pa.domain
-and pa.domain=c.pan
+and w.pan=c.pan
 and c.manuf="Philips"
-and w.end >= current_timestamp
-and w.start <= current_timestamp
+and w.start=c.start
+and w.end=c.end
+and current_timestamp<=w.end
+and current_timestamp>=w.start
 group by m.nut4code);
