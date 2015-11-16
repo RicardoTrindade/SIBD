@@ -63,6 +63,7 @@
 	and p.name='$name'
 	and d.serialnum=a.snum
 	and c.start=w.start
+	and a.manuf=d.manuf
 	and w.end=w.end;
 	";
 
