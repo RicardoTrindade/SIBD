@@ -15,14 +15,18 @@
 	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
 
 	$sql = "SELECT distinct serialnum,manufacturer,description
-	FROM Device as d,Patient as p, Wears as w , Connects as c,PAN as pa, Period as t
+	FROM Device as d,Patient as p, Wears as w, Connects as c,PAN as pa
 	where p.name='$name'
 	and d.serialnum=c.snum
 	and c.pan=pa.domain
 	and w.pan=pa.domain
 	and w.patient=p.number
+	and d.manufacturer=c.manuf
 	and c.start<=current_timestamp
-	and c.end>=current_timestamp;";/* passa-se qualquer coisa com o zé e joana*/
+	and c.end>=current_timestamp
+	and w.start=c.start
+	and w.end=c.end
+	;";
 
 	$result = $connection->query($sql);
 	
@@ -30,19 +34,24 @@
 
 	echo("<p>$num devices retrieved:</p>\n");
 
-	echo("<table border=\"1\">\n");
-	echo("<tr><td>Serial No.</td><td>Manufacturer</td><td>Description</td></tr>\n");
+	?>
+
+	
+	<form action="de.php" method="post">
+
+		<?php
+		
 	foreach($result as $row)
 	{
-		echo("<tr><td>");
-		echo($row["serialnum"]);
-		echo("</td><td>");
-		echo($row["manufacturer"]);
-		echo("</td><td>");
-		echo($row["description"]);
-		echo("</td></tr>\n");
+		$d=$row['description'];
+	?>
+	 <span><?php echo $d; ?></span>
+	<input type="checkbox" name="PAN" value=<?php echo $d; ?> /><br />
+	<?php
 	}
-	echo("</table>\n");
+	?>
+	</form>
+	<?php
 
 	
 		
