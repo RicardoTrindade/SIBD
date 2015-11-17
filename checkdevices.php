@@ -13,6 +13,13 @@
 	$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 
 	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
+	$sqltest="SELECT name from Patient where name='$name';";
+	$result = $connection->query($sqltest);
+	$bool = $result->rowCount();
+	
+	if ($bool==0){
+		echo("Patient was not found");
+	}else{
 
 	$sql = "SELECT distinct serialnum,manufacturer,description
 	FROM Device as d,Patient as p, Wears as w, Connects as c,PAN as pa
@@ -37,7 +44,7 @@
 	?>
 
 	
-	<form action="de.php" method="post">
+	<form action="changepan.php" method="post">
 
 		<?php
 		
@@ -50,18 +57,42 @@
 	<?php
 	}
 	?>
-	</form>
+	
 	<?php
 
 	
 		
         $connection = null;
 	
-	echo("<p>Connection closed.</p>\n");
-	echo("<p>Test completed successfully. Now you know how to connect to your MySQL database.</p>\n");
-
+	/*echo("<p>Connection closed.</p>\n");*/
+	/*echo("<p>Test completed successfully. Now you know how to connect to your MySQL database.</p>\n");*/
+}
 ?>
+<p> Available domains:
+<select name="domain">
+<?php
+$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+$sql= "SELECT domain
+from PAN
+where domain not in (select distinct pan
+ from Wears 
+ where current_timestamp<end 
+ order by end );";
+$result = $connection->query($sql);
+foreach($result as $row)
+{
+$domain= $row['domain'];
+echo("<option value=' '>$domain</option>");
+}
+ $connection=null; /* esta bem?*/
+ ?>
 
+</select>
+</p>
 
+<p> Phone number: <input type ="text" name ="phone"/></p>
+		<p><input type="submit" value ="Submit"></p>
+
+</form>
 </body>
 </html>

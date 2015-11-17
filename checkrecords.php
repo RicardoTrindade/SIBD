@@ -13,6 +13,13 @@
 	$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 
 	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
+	$sqltest="SELECT name from Patient where name='$name';";
+	$result = $connection->query($sqltest);
+	$bool = $result->rowCount();
+	
+	if ($bool==0){
+		echo("Patient was not found");
+	}else{
 
 	$sql = "SELECT r.value,s.units, r.datetime
 	from Patient as p, Wears as w, PAN as pa, Connects as c, Device as d, Sensor as s, Reading as r
@@ -90,7 +97,7 @@
 	
 	echo("<p>Connection closed.</p>\n");
 	echo("<p>Test completed successfully. Now you know how to connect to your MySQL database.</p>\n");
-
+}
 ?>
 
 

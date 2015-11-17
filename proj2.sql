@@ -117,6 +117,9 @@ insert into PAN values ('pan003.healthunit.org',968166584); -- pan do zé
 insert into PAN values ('pan004.healthunit.org',968873789);
 insert into PAN values ('pan005.healthunit.org',916267734);
 insert into PAN values ('pan006.healthunit.org',917687839);	
+insert into PAN values ('pan007.healthunit.org',910000000);
+insert into PAN values ('pan008.healthunit.org',911111111);
+insert into PAN values ('pan009.healthunit.org',912222222);	
 
 insert into Device values ('S-100001','Samsung','Blood Pressure Meter');
 insert into Device values ('S-000001','Philips','Blood Pressure Meter');
@@ -188,7 +191,7 @@ insert into Setting values ('A-6888558','Samsung','2015-06-21 14:05:00',6);
 insert into Wears values ('2014-05-10 08:00:00','2014-09-20 08:00:00',13548484,'pan001.healthunit.org'); -- importante para 3c
 insert into Wears values ('2015-09-01 14:00:00','2015-12-25 00:00:00',14075632,'pan002.healthunit.org'); -- importante para 3b
 insert into Wears values ('2015-04-01 08:00:00','2015-11-25 08:00:00',13998411,'pan003.healthunit.org'); -- pan do zé
-insert into Wears values ('2013-04-01 08:00:00','2013-09-25 08:00:00',13998411,'pan003.healthunit.org'); -- dsdasdsa*/
+insert into Wears values ('2013-04-01 08:00:00','2013-09-25 08:00:00',13998411,'pan003.healthunit.org'); -- 
 insert into Wears values ('2015-05-01 10:00:00','2015-12-11 12:00:00',14138466,'pan004.healthunit.org'); -- importante para 3b
 insert into Wears values ('2015-05-20 12:00:00','2015-12-01 14:00:00',14592044,'pan005.healthunit.org'); -- importante para 3b
 insert into Wears values ('2015-01-20 14:00:00','2015-11-30 15:00:00',14200440,'pan006.healthunit.org'); -- importante para 3b
