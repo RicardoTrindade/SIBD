@@ -21,8 +21,10 @@ if ($name == 'device')
 {
 foreach($_REQUEST[$name] as $device)
 {
-echo($device[0]); //plicas printam $name=$device
-
+//echo($device); //plicas printam $name=$device
+$myArray = explode(';', $device);
+echo $myArray[0];
+echo $myArray[1];
 }
 }
 

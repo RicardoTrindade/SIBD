@@ -49,12 +49,15 @@
 	foreach($result as $row)
 	{
 		$description=$row['description'];
+		$description=(string)$description;
 		$snum=$row['serialnum'];
+		$snum=(string)$snum;
 		$manuf=$row['manufacturer'];
+		$manuf=(string)$manuf;
 	?>
 	 <span><?php echo  $description  . '| '. $snum .'| '. $manuf; ?></span>
-	<!--<input type="checkbox" name="device[]" value=<? /*echo php $description  . $snum . $manuf*/ ; ?> /><br />-->
-	<input type="checkbox" name="device[]" value=<?php array($description => array($snum,$manuf)) ; ?> /><br />
+	
+	<input type="checkbox" name="device[]" value=<?php echo ( $snum .';'. $manuf .';') ; ?> /><br />
 	
 	<?php
 	
