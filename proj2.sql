@@ -20,7 +20,7 @@ drop table if exists Period;
   
   create table PAN (
 	  domain varchar(255),
-	  phone integer,
+	  phone varchar(255),
 	  primary key(domain));
 	  
 	  
@@ -50,8 +50,8 @@ drop table if exists Period;
 	 primary key (nut4code));
 	 
   create table Period ( 
-	 start varchar(255), --  pode ser data numeros letras etc
-	 end varchar(255),
+	 start timestamp, --  pode ser data numeros letras etc
+	 end timestamp,
 	 primary key(start, end));
 	 
   create table Reading ( 
@@ -72,8 +72,8 @@ drop table if exists Period;
 	 foreign key (snum,manuf) references Actuator(snum,manuf)); --  mais uma vez pode ter de ser alterado
 	 
   create table Wears (
-	  start varchar(255),
-	  end varchar(255),
+	  start timestamp,
+	  end timestamp,
 	  patient integer,
 	  pan varchar(255),
 	  primary key (start,end,patient),
@@ -83,8 +83,8 @@ drop table if exists Period;
 	  );
 	  
   create table Lives (
-	  start varchar(255),
-	  end varchar(255),
+	  start timestamp,
+	  end timestamp,
 	  patient integer,
 	  muni char(5),
 	  primary key (start,end,patient),
@@ -94,8 +94,8 @@ drop table if exists Period;
 	  );
 	  
   create table Connects (
-	  start varchar(255),
-	  end varchar(255),
+	  start timestamp,
+	  end timestamp,
 	  snum varchar(255),
 	  manuf varchar(255),
 	  pan varchar(255),

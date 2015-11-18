@@ -52,3 +52,18 @@ and d.manufacturer=s.manuf
 and s.manuf=r.manuf
 and r.datetime>=c.start
 and r.datetime<=c.end;
+
+
+SELECT distinct serialnum,manufacturer,description
+	FROM Device as d,Patient as p, Wears as w, Connects as c,PAN as pa
+	where p.name="José Portela"
+	and d.serialnum=c.snum
+	and c.pan=pa.domain
+	and w.pan=pa.domain
+	and w.patient=p.number
+	and d.manufacturer=c.manuf
+	and c.start<=current_timestamp
+	and c.end>=current_timestamp
+	and w.start=c.start
+	and w.end=c.end
+	;

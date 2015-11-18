@@ -29,8 +29,6 @@
 	and w.pan=pa.domain
 	and w.patient=p.number
 	and d.manufacturer=c.manuf
-	and c.start<=current_timestamp
-	and c.end>=current_timestamp
 	and w.start=c.start
 	and w.end=c.end
 	;";
@@ -50,11 +48,16 @@
 		
 	foreach($result as $row)
 	{
-		$d=$row['description'];
+		$description=$row['description'];
+		$snum=$row['serialnum'];
+		$manuf=$row['manufacturer'];
 	?>
-	 <span><?php echo $d; ?></span>
-	<input type="checkbox" name="PAN" value=<?php echo $d; ?> /><br />
+	 <span><?php echo  $description  . '| '. $snum .'| '. $manuf; ?></span>
+	<input type="checkbox" name="device[]" value=<?php echo $description  . $snum . $manuf ; ?> /><br />
+	
+	
 	<?php
+	
 	}
 	?>
 	
@@ -64,8 +67,7 @@
 		
         $connection = null;
 	
-	/*echo("<p>Connection closed.</p>\n");*/
-	/*echo("<p>Test completed successfully. Now you know how to connect to your MySQL database.</p>\n");*/
+	
 }
 ?>
 <p> Available domains:
@@ -82,7 +84,7 @@ $result = $connection->query($sql);
 foreach($result as $row)
 {
 $domain= $row['domain'];
-echo("<option value=' '>$domain</option>");
+echo("<option value='$domain '>$domain</option>");
 }
  $connection=null; /* esta bem?*/
  ?>
