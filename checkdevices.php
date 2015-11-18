@@ -53,8 +53,8 @@
 		$manuf=$row['manufacturer'];
 	?>
 	 <span><?php echo  $description  . '| '. $snum .'| '. $manuf; ?></span>
-	<input type="checkbox" name="device[]" value=<?php echo $description  . $snum . $manuf ; ?> /><br />
-	
+	<!--<input type="checkbox" name="device[]" value=<? /*echo php $description  . $snum . $manuf*/ ; ?> /><br />-->
+	<input type="checkbox" name="device[]" value=<?php array($description => array($snum,$manuf)) ; ?> /><br />
 	
 	<?php
 	
