@@ -79,7 +79,7 @@ and pa.name='$name');";
         $connection = null;
 }
 ?>
-<p><input type="text" value = <?php echo (" '2016-05-20 14:00:00' "); ?>> Input the end date of connection in this form AAAA-MM-DD HH:mm:ss</p>
+<p><input type="text" name="timestamp" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>> Input the end date of connection in this form AAAA-MM-DD HH:mm:ss</p>
 <p><input type="submit" value ="Submit"></p>
 </form>
 </body>
