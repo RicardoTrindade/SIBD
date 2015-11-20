@@ -5,16 +5,13 @@
 	$user="ist173654";	// <== replace istxxx by your IST identity
 	$password="nutr1007";	// <== paste here the password assigned by mysql_reset
 	$dbname = $user;	// Do nothing here, your database has the same name as your username.
-	$domain = $_REQUEST['domain'];
-	$phone = $_REQUEST['phone'];
-
-
- 
-	$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-
+	$time = $_REQUEST['timestamp'];
+	echo "$time";
 	
-	echo $domain;
-	echo $phone;
+
+ $connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+ $sqlperiod ="INSERT into Period values (current_timestamp,'2016-05-20 14:00:00' );"; 
+ $addtime = $connection->exec($sqlperiod);
 	foreach($_REQUEST as $name => $value)
 {
 if ($name == 'device')

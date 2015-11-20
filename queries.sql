@@ -67,3 +67,28 @@ SELECT distinct serialnum,manufacturer,description
 	and w.start=c.start
 	and w.end=c.end
 	;
+
+
+select c.snum,c.manuf
+from Wears as w, PAN as p,Patient as pa, Connects as c
+where w.end<current_timestamp
+and pa.number=w.patient
+and w.pan=p.domain
+and pa.number=w.patient
+and pa.name='Jorge Martins'
+and w.start<=c.start
+and w.end>=c.end
+and c.pan=w.pan
+and w.end>=all (select w.end
+from Wears as w,PAN as p, Patient as pa
+where w.end<current_timestamp
+and pa.number=w.patient
+and w.pan=p.domain
+and pa.number=w.patient
+and pa.name='Jorge Martins');
+
+select pan
+from Wears as w, Patient as p
+where w.end>current_timestamp
+and w.patient=p.number
+and p.name='Susana Capucho';	

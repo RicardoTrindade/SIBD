@@ -17,6 +17,7 @@
 	$result = $connection->query($sqltest);
 	$bool = $result->rowCount();
 	
+
 	if ($bool==0){
 		echo("Patient was not found");
 	}else{
@@ -27,8 +28,8 @@
 	AND p.number=w.patient
 	AND w.pan=pa.domain
 	AND pa.domain=c.pan
-	AND c.start=w.start
-	AND c.end=w.end
+	AND w.start<=c.start
+	AND w.end>=c.end
 	AND c.snum=d.serialnum
 	AND d.serialnum=s.snum
 	AND s.snum=r.snum
@@ -69,9 +70,9 @@
 	and w.patient=p.number
 	and p.name='$name'
 	and d.serialnum=a.snum
-	and c.start=w.start
-	and a.manuf=d.manuf
-	and w.end=w.end;
+	and w.start<=c.start
+	and a.manuf=d.manufacturer
+	and w.end>=c.end;
 	";
 
 	$result = $connection->query($sql2);

@@ -110,6 +110,7 @@ insert into Patient values (14138466,'Beatriz Almeida','Praça Duque de Cadaval'
 insert into Patient values (13998411,'José Portela','Rua Professor Aires de Sousa');
 insert into Patient values (14592044,'Mariana Sequeira','Campo');
 insert into Patient values (13548484,'Susana Capucho','Rua Catarina Eufémia');
+insert into Patient values (14291817,'Jorge Martins','Rua Casimiro Freire');
 
 insert into PAN values ('pan001.healthunit.org',918239456);
 insert into PAN values ('pan002.healthunit.org',926096827);
@@ -132,6 +133,10 @@ insert into Device values ('S-85775','Philips','Heart Rate Monitor');
 insert into Device values ('S-12387','Philips', 'Scale'); -- importante para 3c
 insert into Device values ('A-75254','Philips','Rotating Pump');	
 insert into Device values ('S-99999','Siemens','Scale');
+insert into Device values ('S-201201','Samsung','Blood Pressure Meter');
+insert into Device values ('A-201201','Samsung','Rotating Pump');
+insert into Device values ('S-201202','Siemens','Heart Rate Monitor');	
+
 
 insert into Sensor values ('S-100001','Samsung','mmHg');
 insert into Sensor values ('S-000001','Philips','mmHg');
@@ -140,11 +145,14 @@ insert into Sensor values ('S-100001','Siemens','mg/dL');
 insert into Sensor values ('S-784486','Siemens','BPM');
 insert into Sensor values ('S-85775','Philips','BPM');
 insert into Sensor values ('S-12387','Philips','Kg');	-- importante para 3c
-insert into Sensor values ('S-99999','Siemens','Kg');	
+insert into Sensor values ('S-99999','Siemens','Kg');
+insert into Sensor values ('S-201201','Samsung','mmHg');
+insert into Sensor values ('S-201202','Siemens','BPM');	
 
 insert into Actuator values ('A-26548','Philips','RPM');
 insert into Actuator values ('A-6888558','Samsung','mmol/L');
 insert into Actuator values ('A-75254','Philips','RPM');
+insert into Actuator values ('A-201201','Samsung','RPM');	
 
 insert into Municipality values ('10001','Lisboa'); -- importante para 3c
 insert into Municipality values ('20001','Madeira'); -- importante para 3c
@@ -170,7 +178,6 @@ insert into Period values ('2015-01-05 15:30:00','2015-03-10 10:00:00');
 insert into Period values ('2005-05-12 10:00:00','2016-05-15 19:30:00');
 insert into Period values ('2013-04-01 08:00:00','2013-09-25 08:00:00');
 insert into Period values ('2015-01-21 14:00:00','2015-11-29 15:00:00');
-	
 insert into Period values ('2013-04-01 09:00:00','2013-09-25 08:00:00');
 insert into Period values ('2014-02-08 11:00:00','2014-05-20 10:00:00');	
 insert into Period values ('2015-01-05 16:30:00','2015-03-10 10:00:00');
@@ -180,11 +187,17 @@ insert into Period values ('2015-09-01 15:00:00','2015-12-25 00:00:00');
 insert into Period values ('2014-05-10 09:00:00','2014-09-20 08:00:00');
 insert into Period values ('2015-05-10 09:00:00','2015-09-20 08:00:00');
 insert into Period values ('2015-05-10 08:00:00','2015-09-20 08:00:00');	
-
 insert into Period values ('2014-02-09 08:00:00','2015-12-01 08:00:00');
 insert into Period values ('2014-11-09 17:00:00','2015-12-12 12:00:00');
 insert into Period values ('2015-05-20 14:00:00', '2015-12-01 14:00:00');
-insert into Period values ('2014-11-09 17:00:00','2015-12-12 18:00:00');	
+insert into Period values ('2014-11-09 17:00:00','2015-12-12 18:00:00');
+
+insert into Period values ('2007-01-10 08:00:00','2007-07-25 08:00:00'); -- periods for 4b
+insert into Period values ('2007-01-10 09:00:00','2007-02-25 08:00:00'); -- sensor1 period
+insert into Period values ('2007-02-26 09:00:00','2007-03-25 08:00:00'); -- sensor 2 period
+insert into Period values ('2007-03-25 09:00:00','2007-07-20 08:00:00'); -- actuator period	
+insert into Period values ('1993-01-12 04:00:00','2020-01-06 03:30:00');
+insert into Period values ('2015-03-17 02:00:00','2016-01-20 04:00:00');	
 
 insert into Reading values ('S-12387','Philips','2015-10-17 07:30:00', 130);
 insert into Reading values ('S-12387','Philips','2015-11-29 07:30:00',  90);
@@ -215,6 +228,8 @@ insert into Wears values ('2015-04-01 08:00:00','2015-11-25 08:00:00',13998411,'
 insert into Wears values ('2014-11-09 17:00:00','2015-12-12 18:00:00',14138466,'pan004.healthunit.org'); -- importante para 3c
 insert into Wears values ('2015-05-20 12:00:00','2015-12-01 14:00:00',14592044,'pan005.healthunit.org'); -- importante para 3b
 insert into Wears values ('2014-02-09 08:00:00','2015-12-01 08:00:00',14200440,'pan006.healthunit.org'); -- importante para 3c
+insert into Wears values ('2007-01-10 08:00:00','2007-07-25 08:00:00',14291817,'pan007.healthunit.org');
+insert into Wears values ('2015-03-17 02:00:00','2016-01-20 04:00:00',14291817,'pan008.healthunit.org');
 
 insert into Lives values ('1993-09-19 08:30:50','2017-09-15 12:30:00',14200440,'20001'); -- importante para 3b
 insert into Lives values ('1993-07-17 12:50:00','2017-09-26 09:00:00',14075632,'40001'); -- importante para 3b
@@ -222,6 +237,7 @@ insert into Lives values ('1999-09-10 11:00:00','2016-05-22 12:00:00',14138466,'
 insert into Lives values ('1995-05-14 18:00:00','2016-04-21 12:00:00',14592044,'40001'); -- importante para 3b
 insert into Lives values ('2004-02-10 14:00:00','2016-01-15 15:00:00',13998411,'10001'); -- importante para 3c
 insert into Lives values ('2005-05-12 10:00:00','2016-05-15 19:30:00',13548484,'40001'); -- importante para 3c
+insert into Lives values ('1993-01-12 04:00:00','2020-01-06 03:30:00',14291817,'40001');	
 
 insert into Connects values ('2015-05-10 09:00:00','2015-09-20 08:00:00','S-99999','Siemens','pan001.healthunit.org'); -- importante para 3c
 insert into Connects values ('2015-09-01 15:00:00','2015-12-25 00:00:00','S-000001','Philips','pan002.healthunit.org');	-- importante para 3b
@@ -235,5 +251,6 @@ insert into Connects values ('2015-05-20 13:00:00','2015-12-01 14:00:00','S-1238
 insert into Connects values ('2015-05-20 14:00:00', '2015-12-01 14:00:00','A-6888558','Samsung','pan005.healthunit.org');
 insert into Connects values ('2014-02-10 08:00:00','2014-12-28 08:00:00','S-58956','Siemens','pan006.healthunit.org'); -- importante para 3c
 insert into Connects values ('2015-01-20 14:00:00','2015-11-30 15:00:00','S-100001','Siemens','pan006.healthunit.org');  -- importante para 3b
- -- e pa testar este
-
+insert into Connects values ('2007-01-10 09:00:00','2007-02-25 08:00:00','S-201201','Samsung','pan007.healthunit.org');
+insert into Connects values ('2007-02-26 09:00:00','2007-03-25 08:00:00','S-201202','Siemens','pan007.healthunit.org');
+insert into Connects values ('2007-03-25 09:00:00','2007-07-20 08:00:00','A-201201','Samsung','pan007.healthunit.org'); 

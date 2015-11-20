@@ -13,31 +13,43 @@
 	$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 
 	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
-	$sqltest="SELECT name from Patient where name='$name';";
+	$sqltest="SELECT pan
+	from Wears as w, Patient as p
+	where w.end>current_timestamp
+	and w.patient=p.number
+	and p.name='$name';";
 	$result = $connection->query($sqltest);
 	$bool = $result->rowCount();
 	
+	
+	
 	if ($bool==0){
-		echo("Patient was not found");
+		echo("Either this patient doesn't exist or doesn't have any PAN associated to it right now");
 	}else{
 
-	$sql = "SELECT distinct serialnum,manufacturer,description
-	FROM Device as d,Patient as p, Wears as w, Connects as c,PAN as pa
-	where p.name='$name'
-	and d.serialnum=c.snum
-	and c.pan=pa.domain
-	and w.pan=pa.domain
-	and w.patient=p.number
-	and d.manufacturer=c.manuf
-	and w.start=c.start
-	and w.end=c.end
-	;";
+	$sql = "SELECT c.snum,c.manuf
+from Wears as w, PAN as p,Patient as pa, Connects as c
+where w.end<current_timestamp
+and pa.number=w.patient
+and w.pan=p.domain
+and pa.number=w.patient
+and pa.name='$name'
+and w.start<=c.start
+and w.end>=c.end
+and c.pan=w.pan
+and w.end>=all (SELECT w.end
+from Wears as w,PAN as p, Patient as pa
+where w.end<current_timestamp
+and pa.number=w.patient
+and w.pan=p.domain
+and pa.number=w.patient
+and pa.name='$name');";
 
 	$result = $connection->query($sql);
 	
 	$num = $result->rowCount();
 
-	echo("<p>$num devices retrieved:</p>\n");
+	echo("<p>$num devices retrieved:</p>\n"); // Usar um if para quando so teve uma pan na vida
 
 	?>
 
@@ -48,14 +60,13 @@
 		
 	foreach($result as $row)
 	{
-		$description=$row['description'];
-		$description=(string)$description;
-		$snum=$row['serialnum'];
+		
+		$snum=$row['snum'];
 		$snum=(string)$snum;
-		$manuf=$row['manufacturer'];
+		$manuf=$row['manuf'];
 		$manuf=(string)$manuf;
 	?>
-	 <span><?php echo  $description  . '| '. $snum .'| '. $manuf; ?></span>
+	 <span><?php echo   ("$snum" .'| '. "$manuf"); ?></span>
 	
 	<input type="checkbox" name="device[]" value=<?php echo ( $snum .';'. $manuf .';') ; ?> /><br />
 	
@@ -64,40 +75,12 @@
 	}
 	?>
 	
-	<?php
-
-	
-		
+	<?php		
         $connection = null;
-	
-	
 }
 ?>
-<p> Available domains:
-<select name="domain">
-<?php
-$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-$sql= "SELECT domain
-from PAN
-where domain not in (select distinct pan
- from Wears 
- where current_timestamp<end 
- order by end );";
-$result = $connection->query($sql);
-foreach($result as $row)
-{
-$domain= $row['domain'];
-echo("<option value='$domain '>$domain</option>");
-}
- $connection=null; /* esta bem?*/
- ?>
-
-</select>
-</p>
-
-<p> Phone number: <input type ="text" name ="phone"/></p>
-		<p><input type="submit" value ="Submit"></p>
-
+<p><input type="text" value = <?php echo (" '2016-05-20 14:00:00' "); ?>> Input the end date of connection in this form AAAA-MM-DD HH:mm:ss</p>
+<p><input type="submit" value ="Submit"></p>
 </form>
 </body>
 </html>
