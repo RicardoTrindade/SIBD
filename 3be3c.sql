@@ -33,15 +33,15 @@ group by m.nut4code);
 
  select d.manufacturer as Manufacturer, count(m.nut4code) as Number_of_Scales, GROUP_CONCAT(m.name) as Municipalities 
  from Device as d, Connects as c, PAN as p, Wears as w, Lives as l,Municipality as m, Patient as pa
-  where d.description='scale'  
+  where d.description='Scale'  
   and c.pan=p.domain 
   and d.serialnum=c.snum 
   and w.pan=p.domain 
   and w.patient=l.patient 
   and l.muni=m.nut4code 
   and w.patient=pa.number
-  and c.start=w.start
-  and c.end=w.end
+  and w.start<=c.start
+  and w.end>=c.end
   and timestampdiff(YEAR, c.end,current_timestamp)<=1 
   group by d.manufacturer
   having count(m.nut4code)>=(select count(m.nut4code)from Municipality as m);
