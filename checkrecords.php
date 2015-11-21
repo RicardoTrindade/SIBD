@@ -22,7 +22,7 @@
 		echo("Patient was not found");
 	}else{
 
-	$sql = "SELECT r.value,s.units, r.datetime
+	$sql = "SELECT r.value,s.units, r.datetime,d.serialnum,d.manufacturer
 	from Patient as p, Wears as w, PAN as pa, Connects as c, Device as d, Sensor as s, Reading as r
 	where p.name='$name'
 	AND p.number=w.patient
@@ -48,7 +48,7 @@
 	echo("<p>$num readings retrieved:</p>\n");
 
 	echo("<table border=\"1\">\n");
-	echo("<tr><td>Value</td><td>Units</td><td>Timestamp</td></tr>\n");
+	echo("<tr><td>Value</td><td>Units</td><td>Timestamp</td><td>Serial number</td><td>Manufacturer</td></tr>\n");
 	foreach($result as $row)
 	{
 		echo("<tr><td>");
@@ -57,12 +57,17 @@
 		echo($row["units"]);
 		echo("</td><td>");
 		echo($row["datetime"]);
+		echo("</td><td>");
+		echo($row["serialnum"]);
+		echo("</td><td>");
+		echo($row["manufacturer"]);
 		echo("</td></tr>\n");
+
 	}
 	echo("</table>\n");
 
 	
-	$sql2="SELECT s.value,a.units,s.datetime
+	$sql2="SELECT s.value,a.units,s.datetime,d.serialnum,d.manufacturer
 	FROM Setting as s, Device as d, Actuator as a, Connects as c, Wears as w,Patient as p
 	WHERE s.snum=d.serialnum
 	and d.serialnum=c.snum
@@ -80,7 +85,7 @@
 	$num = $result->rowCount();
 	echo("<p>$num settings retrieved:</p>\n");
 	echo("<table border=\"1\">\n");
-	echo("<tr><td>Value</td><td>Units</td><td>Timestamp</td></tr>\n");
+	echo("<tr><td>Value</td><td>Units</td><td>Timestamp</td><td>Serial number</td><td>Manufacturer</td></tr>\n");
 	foreach($result as $row)
 	{
 		echo("<tr><td>");
@@ -89,6 +94,10 @@
 		echo($row["units"]);
 		echo("</td><td>");
 		echo($row["datetime"]);
+		echo("</td><td>");
+		echo($row["serialnum"]);
+		echo("</td><td>");
+		echo($row["manufacturer"]);
 		echo("</td></tr>\n");
 	}
 	echo("</table>\n");

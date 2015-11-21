@@ -1,6 +1,5 @@
+<?php session_start(); ?>
 <html>
-
- 
 <body>
 <?php
  	$host="db.ist.utl.pt";	// MySQL is hosted in this machine
@@ -19,6 +18,7 @@
 	and w.patient=p.number
 	and p.name='$name';";
 	$result = $connection->query($sqltest);
+
 	$bool = $result->rowCount();
 	
 	
@@ -26,6 +26,10 @@
 	if ($bool==0){
 		echo("Either this patient doesn't exist or doesn't have any PAN associated to it right now");
 	}else{
+	foreach($result as $row){
+		$_SESSION['domain']=$row['pan'];
+		
+	}
 
 	$sql = "SELECT c.snum,c.manuf
 from Wears as w, PAN as p,Patient as pa, Connects as c
@@ -79,7 +83,9 @@ and pa.name='$name');";
         $connection = null;
 }
 ?>
-<p><input type="text" name="timestamp" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>> Input the end date of connection in this form AAAA-MM-DD HH:mm:ss</p>
+
+<p><input type="text" name="timestamp_start" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>> </p>
+<p><input type="text" name="timestamp_end" value = <?php echo (" '2016-05-25 14:00:00' " ); ?>> </p>
 <p><input type="submit" value ="Submit"></p>
 </form>
 </body>

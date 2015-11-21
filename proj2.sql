@@ -104,6 +104,44 @@ drop table if exists Period;
 	  foreign key (snum,manuf) references Device(serialnum,manufacturer), --  duvida aqui..
 	  foreign key (pan) references PAN(domain)); --  e neste tambem
 
+
+  drop trigger if exists check_connects;
+drop trigger if exists check_wears;
+ 
+delimiter $$
+create trigger check_connects before insert on Connects
+for each row
+begin
+declare n integer;
+select count(*) into n
+from Connects as c
+where c.snum = new.snum and c.manuf = new.manuf
+and ((timestampdiff(hour,new.start,start)>=0 and timestampdiff(hour,new.end,start)<=0)||
+(timestampdiff(hour,new.start,start)<=0 and timestampdiff(hour,new.start,end)>=0));
+if n>0 || new.start>new.end then
+call the_device_is_already_connected_to_a_PAN_in_this_period();
+end if;
+end$$
+delimiter ;
+ 
+delimiter $$
+create trigger check_wears before insert on Wears
+for each row
+begin
+declare n integer;
+select count(*) into n
+from Wears as w
+where w.patient = new.patient
+and w.pan=new.pan
+
+and ((timestampdiff(hour,new.start,start)>=0 and timestampdiff(hour,new.end,start)<=0)||
+(timestampdiff(hour,new.start,start)<=0 and timestampdiff(hour,new.start,end)>=0));
+if n>0 || new.start>new.end then
+call the_patient_wears_already_a_PAN_in_this_period();
+end if;
+end$$
+delimiter ;
+
 insert into Patient values (14075632,'Ricardo Trindade','Rua Professor Alfredo Reis');
 insert into Patient values (14200440,'Joana Faria','Rua das Maravilhas');
 insert into Patient values (14138466,'Beatriz Almeida','Praça Duque de Cadaval');
@@ -192,6 +230,7 @@ insert into Period values ('2014-11-09 17:00:00','2015-12-12 12:00:00');
 insert into Period values ('2015-05-20 14:00:00', '2015-12-01 14:00:00');
 insert into Period values ('2014-11-09 17:00:00','2015-12-12 18:00:00');
 
+
 insert into Period values ('2007-01-10 08:00:00','2007-07-25 08:00:00'); -- periods for 4b
 insert into Period values ('2007-01-10 09:00:00','2007-02-25 08:00:00'); -- sensor1 period
 insert into Period values ('2007-02-26 09:00:00','2007-03-25 08:00:00'); -- sensor 2 period
@@ -254,3 +293,5 @@ insert into Connects values ('2015-01-20 14:00:00','2015-11-30 15:00:00','S-1000
 insert into Connects values ('2007-01-10 09:00:00','2007-02-25 08:00:00','S-201201','Samsung','pan007.healthunit.org');
 insert into Connects values ('2007-02-26 09:00:00','2007-03-25 08:00:00','S-201202','Siemens','pan007.healthunit.org');
 insert into Connects values ('2007-03-25 09:00:00','2007-07-20 08:00:00','A-201201','Samsung','pan007.healthunit.org'); 
+
+
