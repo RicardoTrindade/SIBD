@@ -105,7 +105,7 @@ drop table if exists Period;
 	  foreign key (pan) references PAN(domain)); --  e neste tambem
 
 
-  drop trigger if exists check_connects;
+drop trigger if exists check_connects;
 drop trigger if exists check_wears;
  
 delimiter $$
@@ -119,7 +119,7 @@ where c.snum = new.snum and c.manuf = new.manuf
 and ((timestampdiff(hour,new.start,start)>=0 and timestampdiff(hour,new.end,start)<=0)||
 (timestampdiff(hour,new.start,start)<=0 and timestampdiff(hour,new.start,end)>=0));
 if n>0 || new.start>new.end then
-call the_device_is_already_connected_to_a_PAN_in_this_period();
+call This_pan_is_already_connected_ with_a_device_in_this_period();
 end if;
 end$$
 delimiter ;
@@ -137,7 +137,7 @@ and w.pan=new.pan
 and ((timestampdiff(hour,new.start,start)>=0 and timestampdiff(hour,new.end,start)<=0)||
 (timestampdiff(hour,new.start,start)<=0 and timestampdiff(hour,new.start,end)>=0));
 if n>0 || new.start>new.end then
-call the_patient_wears_already_a_PAN_in_this_period();
+call This_pan_is_already_being_used_by_other_patient_in_this_period();
 end if;
 end$$
 delimiter ;
