@@ -24,12 +24,13 @@ foreach($_REQUEST[$name] as $device)
 
 
 $myArray = explode(';', $device);
-$snum=$myArray[0]; echo $snum;
-$manuf=$myArray[1]; echo $manuf;
-$panurl=$_SESSION['domain']; echo $panurl;
+$snum=$myArray[0];
+$manuf=$myArray[1]; 
+$panurl=$_SESSION['domain'];
 $sqlconnects = "INSERT into Connects values ('$time_start','$time_end','$snum','$manuf','$panurl');";
 $addconnnects = $connection->exec($sqlconnects);
 echo("<p>Rows inserted: $addconnnects</p>");
+echo("<p>Devices have been transfered!!!");
 }
 }
 

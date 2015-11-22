@@ -149,6 +149,7 @@ insert into Patient values (13998411,'José Portela','Rua Professor Aires de Sou
 insert into Patient values (14592044,'Mariana Sequeira','Campo');
 insert into Patient values (13548484,'Susana Capucho','Rua Catarina Eufémia');
 insert into Patient values (14291817,'Jorge Martins','Rua Casimiro Freire');
+insert into Patient values (12345678,'Jorge Martins','Rua Duplicada');	
 
 insert into PAN values ('pan001.healthunit.org',918239456);
 insert into PAN values ('pan002.healthunit.org',926096827);

@@ -6,25 +6,14 @@
 	$user="ist173654";	// <== replace istxxx by your IST identity
 	$password="nutr1007";	// <== paste here the password assigned by mysql_reset
 	$dbname = $user;	// Do nothing here, your database has the same name as your username.
-	$name = $_REQUEST['name'];
-
+	$number = $_REQUEST['number'];
  	
+ 	echo $number;
 
 	$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-	$contaconta= "SELECT  Count(name) from Patient where name='$name';";
- 	$sqlconta = $connection->query($contaconta);
- 	
- 	foreach($sqlconta as $row){
- 		$num=$row['Count(name)'];
- 		}
- 	if($num>1){
- 		$_SESSION['name']=$name;
- 		$connection=null;
- 		header('Location: repeatednames.php');
- 		exit;
- 	}
-	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
-	$sqltest="SELECT name from Patient where name='$name';";
+	
+ 	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
+	$sqltest="SELECT number from Patient where number like '%$number%';";
 	$result = $connection->query($sqltest);
 	$bool = $result->rowCount();
 	
@@ -35,7 +24,7 @@
 
 	$sql = "SELECT r.value,s.units, r.datetime,d.serialnum,d.manufacturer
 	from Patient as p, Wears as w, PAN as pa, Connects as c, Device as d, Sensor as s, Reading as r
-	where p.name='$name'
+	where p.number ='$number'
 	AND p.number=w.patient
 	AND w.pan=pa.domain
 	AND pa.domain=c.pan
@@ -84,7 +73,7 @@
 	and d.serialnum=c.snum
 	and w.pan=c.pan
 	and w.patient=p.number
-	and p.name='$name'
+	and p.number='$number'
 	and d.serialnum=a.snum
 	and w.start<=c.start
 	and a.manuf=d.manufacturer

@@ -6,34 +6,21 @@
 	$user="ist173654";	// <== replace istxxx by your IST identity
 	$password="nutr1007";	// <== paste here the password assigned by mysql_reset
 	$dbname = $user;	// Do nothing here, your database has the same name as your username.
-	$name = $_REQUEST['name'];
+	$number = $_REQUEST['number'];
 
  
 	$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-	$contaconta= "SELECT  Count(name) from Patient where name='$name';";
- 	$sqlconta = $connection->query($contaconta);
+	
  	
- 	foreach($sqlconta as $row){
- 		$num=$row['Count(name)'];
- 		}
- 	if($num>1){
- 		$_SESSION['name']=$name;
- 		$connection=null;
- 		header('Location: repeatednames2.php');
- 		exit;
- 	}
-
 	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
 	$sqltest="SELECT pan
 	from Wears as w, Patient as p
 	where w.end>current_timestamp
 	and w.patient=p.number
-	and p.name='$name';";
+	and p.number='$number';";
 	$result = $connection->query($sqltest);
 
 	$bool = $result->rowCount();
-	
-	
 	
 	if ($bool==0){
 		echo("Either this patient doesn't exist or doesn't have any PAN associated to it right now");
@@ -49,7 +36,7 @@ where w.end<current_timestamp
 and pa.number=w.patient
 and w.pan=p.domain
 and pa.number=w.patient
-and pa.name='$name'
+and pa.number='$number'
 and w.start<=c.start
 and w.end>=c.end
 and c.pan=w.pan
@@ -59,7 +46,7 @@ where w.end<current_timestamp
 and pa.number=w.patient
 and w.pan=p.domain
 and pa.number=w.patient
-and pa.name='$name');";
+and pa.number='$number');";
 
 	$result = $connection->query($sql);
 	
