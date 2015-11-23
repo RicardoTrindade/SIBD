@@ -1,16 +1,28 @@
 <html>
-	<body>
-		<form action ="checkrecords.php" method="post">
-		<h3>Input patient name to check his readings and settings</h3>
-		<p> Patient name: <input type ="text" name ="name"/></p>
-		<p><input type="submit" value ="Submit"></p>
-		</form>
+<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+		<title>Welcome</title>
+</head>	
+<body>
 
+		<form action ="checkrecords.php" method="post">
+		<h2> Welcome to the Medical Center Database</h2>
+<img src="http://indydatapartners.com/portals/0/Images/Icons/HealthCheck-lg.png"/>
+
+<fieldset>
+		<h3>Input patient name to check his readings and settings</h3>
+		
+<p id="p2"> Patient name: <input type ="text" name ="name"/></p>
+		<p id="p1"><input type="submit" value ="Submit"></p>
+		</form>
+</fieldset>
+<fieldset>
 		<form action ="checkdevices.php" method="post">
 		<h3>Input patient name to check the devices attached to his PAN</h3>
-		<p> Patient name: <input type ="text" name ="name"/></p>
-		<p><input type="submit" value ="Submit"></p>
+		<p id="p2"> Patient name: <input type ="text" name ="name"/></p>
+		<p id="p1"><input type="submit" value ="Submit"></p>
 		</form>
+</fieldset>
 	</body>
 </html>
 

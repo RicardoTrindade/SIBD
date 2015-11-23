@@ -1,18 +1,20 @@
 <?php session_start(); ?>
 <html>
+<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+</head>
 <body>
 <?php
  	$host="db.ist.utl.pt";	// MySQL is hosted in this machine
-	$user="ist173654";	// <== replace istxxx by your IST identity
-	$password="nutr1007";	// <== paste here the password assigned by mysql_reset
+	$user="ist173150";	// <== replace istxxx by your IST identity
+	$password="jjia4691";	// <== paste here the password assigned by mysql_reset
 	$dbname = $user;	// Do nothing here, your database has the same name as your username.
 	$number = $_REQUEST['number'];
 
  
 	$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 	
- 	
-	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
+ 	echo("<h3>Transfering Devices</h3>\n");
 	$sqltest="SELECT pan
 	from Wears as w, Patient as p
 	where w.end>current_timestamp
@@ -23,12 +25,13 @@
 	$bool = $result->rowCount();
 	
 	if ($bool==0){
-		echo("Either this patient doesn't exist or doesn't have any PAN associated to it right now");
+		echo("<h4>Either this patient doesn't exist or doesn't have any PAN associated to it right now<h4>");
 	}else{
 	foreach($result as $row){
 		$_SESSION['domain']=$row['pan'];
 		
 	}
+
 
 	$sql = "SELECT c.snum,c.manuf
 from Wears as w, PAN as p,Patient as pa, Connects as c
@@ -52,13 +55,14 @@ and pa.number='$number');";
 	
 	$num = $result->rowCount();
 
-	echo("<p>$num devices retrieved:</p>\n"); // Usar um if para quando so teve uma pan na vida
+	echo("<h4>$num devices retrieved:</h4>\n"); // Usar um if para quando so teve uma pan na vida
 
 	?>
 
 	
 	<form action="changepan.php" method="post">
-
+<h3><strong>Please select the device(s) that you want to transfer to the actual PAN</strong></h3>
+<fieldset id="f1">
 		<?php
 		
 	foreach($result as $row)
@@ -77,15 +81,17 @@ and pa.number='$number');";
 	
 	}
 	?>
-	
+	</fieldset>
 	<?php		
         $connection = null;
 }
 ?>
-
-<p><input type="text" name="timestamp_start" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>> </p>
-<p><input type="text" name="timestamp_end" value = <?php echo (" '2016-05-25 14:00:00' " ); ?>> </p>
-<p><input type="submit" value ="Submit"></p>
+<h3><strong>Insert the periods of connection for the selected device(s)</strong></h3>
+<fieldset id="f1">
+<p id="p2"><strong>Start time :</strong><input type="text" name="timestamp_start" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>> </p>
+<p id="p2"><strong>End time :</strong><input type="text" name="timestamp_end" value = <?php echo (" '2016-05-25 14:00:00' " ); ?>> </p>
+<p id="p1"><input type="submit" value ="Submit"></p>
+</fieldset>
 </form>
 </body>
 </html>

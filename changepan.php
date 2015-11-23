@@ -1,11 +1,14 @@
 <?php session_start(); ?>
 <html>
+<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+</head>
 <body>
 <?php
- 	$host="db.ist.utl.pt";	// MySQL is hosted in this machine
-	$user="ist173654";	// <== replace istxxx by your IST identity
-	$password="nutr1007";	// <== paste here the password assigned by mysql_reset
-	$dbname = $user;	// Do nothing here, your database has the same name as your username.
+ 	$host="db.ist.utl.pt";	
+	$user="ist173150";	
+	$password="jjia4691";	
+	$dbname = $user;	
 	$time_start = $_REQUEST['timestamp_start'];
 	$time_end =$_REQUEST['timestamp_end'];
 
@@ -30,11 +33,19 @@ $panurl=$_SESSION['domain'];
 $sqlconnects = "INSERT into Connects values ('$time_start','$time_end','$snum','$manuf','$panurl');";
 $addconnnects = $connection->exec($sqlconnects);
 echo("<p>Rows inserted: $addconnnects</p>");
-echo("<p>Devices have been transfered!!!");
+echo("<h2>The Device(s) have been successfully transfered!<h2>");
 }
 }
 
 }
 	$connection=null;
-	?>
+	
+?>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h4>If you want to associate other device click "Back"<h4>
+<div>
+<a href="http://web.ist.utl.pt/ist173150/records.html"><strong>Back</strong></a>
+</div>
+</body>
 </html>
