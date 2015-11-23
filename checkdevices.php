@@ -23,7 +23,7 @@
  		exit;
  	}
 
-	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
+	
 	$sqltest="SELECT pan
 	from Wears as w, Patient as p
 	where w.end>current_timestamp
@@ -71,7 +71,7 @@ and pa.name='$name');";
 
 	
 	<form action="changepan.php" method="post">
-
+	<p><strong>Please select the device(s) that you want to transfer to the actual PAN</strong></p>
 		<?php
 		
 	foreach($result as $row)
@@ -95,9 +95,9 @@ and pa.name='$name');";
         $connection = null;
 }
 ?>
-
-<p><input type="text" name="timestamp_start" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>> </p>
-<p><input type="text" name="timestamp_end" value = <?php echo (" '2016-05-25 14:00:00' " ); ?>> </p>
+<p><strong>Insert the periods of connection for the selected device(s)</strong></p>
+<p><strong>Start time :</strong><input type="text" name="timestamp_start" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>>  </p>
+<p><strong>End time :</strong><input type="text" name="timestamp_end" value = <?php echo (" '2016-05-25 14:00:00' " ); ?>> </p>
 <p><input type="submit" value ="Submit"></p>
 </form>
 </body>

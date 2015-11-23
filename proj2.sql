@@ -105,21 +105,22 @@ drop table if exists Period;
 	  foreign key (pan) references PAN(domain)); --  e neste tambem
 
 
-  drop trigger if exists check_connects;
+drop trigger if exists check_connects;
 drop trigger if exists check_wears;
  
 delimiter $$
 create trigger check_connects before insert on Connects
 for each row
 begin
-declare n integer;
-select count(*) into n
+declare k integer;
+select count(*) into k
 from Connects as c
-where c.snum = new.snum and c.manuf = new.manuf
-and ((timestampdiff(hour,new.start,start)>=0 and timestampdiff(hour,new.end,start)<=0)||
-(timestampdiff(hour,new.start,start)<=0 and timestampdiff(hour,new.start,end)>=0));
-if n>0 || new.start>new.end then
-call the_device_is_already_connected_to_a_PAN_in_this_period();
+where c.snum = new.snum and c.manuf = new.manuf and new.pan=c.pan
+and ((timestampdiff(second,new.start,start)>=0 and timestampdiff(second,new.end,start)<=0)||
+(timestampdiff(second,new.start,start)<=0 and timestampdiff(second,new.start,end)>=0)||
+(timestampdiff(second,new.start,start)>=0 and timestampdiff(second,new.end,end)>=0));
+if k>0 || new.start>new.end then
+call This_pan_is_already_connected_with_a_device_in_this_period();
 end if;
 end$$
 delimiter ;
@@ -128,16 +129,16 @@ delimiter $$
 create trigger check_wears before insert on Wears
 for each row
 begin
-declare n integer;
-select count(*) into n
+declare k integer;
+select count(*) into k
 from Wears as w
 where w.patient = new.patient
 and w.pan=new.pan
-
-and ((timestampdiff(hour,new.start,start)>=0 and timestampdiff(hour,new.end,start)<=0)||
-(timestampdiff(hour,new.start,start)<=0 and timestampdiff(hour,new.start,end)>=0));
-if n>0 || new.start>new.end then
-call the_patient_wears_already_a_PAN_in_this_period();
+and ((timestampdiff(second,new.start,start)>=0 and timestampdiff(second,new.end,start)<=0)||
+(timestampdiff(second,new.start,start)<=0 and timestampdiff(second,new.start,end)>=0)||
+(timestampdiff(second,new.start,start)>=0 and timestampdiff(second,new.end,end)>=0));
+if k>0 || new.start>new.end then
+call This_pan_is_already_being_used_by_other_patient_in_this_period();
 end if;
 end$$
 delimiter ;
@@ -237,7 +238,8 @@ insert into Period values ('2007-01-10 09:00:00','2007-02-25 08:00:00'); -- sens
 insert into Period values ('2007-02-26 09:00:00','2007-03-25 08:00:00'); -- sensor 2 period
 insert into Period values ('2007-03-25 09:00:00','2007-07-20 08:00:00'); -- actuator period	
 insert into Period values ('1993-01-12 04:00:00','2020-01-06 03:30:00');
-insert into Period values ('2015-03-17 02:00:00','2016-01-20 04:00:00');	
+insert into Period values ('2015-03-17 02:00:00','2016-01-20 04:00:00');
+insert into Period values ('2015-11-20 11:00:00','2015-11-28 01:00:00'); -- testing
 
 insert into Reading values ('S-12387','Philips','2015-10-17 07:30:00', 130);
 insert into Reading values ('S-12387','Philips','2015-11-29 07:30:00',  90);
@@ -252,11 +254,25 @@ insert into Reading values ('S-100001','Samsung' ,'2015-04-20 08:00:00', 10);
 insert into Reading values ('S-000001','Philips','2015-11-16 11:58:00', 7); 
 insert into Reading values ('S-000001','Philips','2015-11-17 11:58:00', 12);
 -- 
--- devia acrescentar readings para as scales
+insert into Reading values ('S-99999','Siemens','2015-06-09 10:00:00',120);
+insert into Reading values ('S-99999','Siemens','2015-07-09 11:00:00',100);
+insert into Reading values ('S-12387','Philips','2014-02-09 10:00:00',50);
+insert into Reading values ('S-12387','Philips','2014-03-09 10:00:00',70);
+insert into Reading values ('S-99999','Siemens','2014-11-11 10:00:00',80);
+insert into Reading values ('S-99999','Siemens','2014-11-26 10:00:00',70);
+insert into Reading values ('S-85775','Philips','2015-05-05 11:00:00',70);
+insert into Reading values ('S-85775','Philips','2015-05-05 15:00:00',100);
+insert into Reading values ('S-58956','Siemens','2014-02-11 10:00:00',80);
+insert into Reading values ('S-201201','Samsung','2007-01-11 10:00:00',90);
+insert into Reading values ('S-201201','Samsung','2007-01-15 10:00:00',85);
+insert into Reading values ('S-201202','Siemens','2007-02-27 10:00:00',95);
+insert into Reading values ('S-201201','Samsung','2015-11-21 23:00:00',10);
+
 
 insert into Setting values ('A-26548','Philips','2013-05-03 09:40:00',2500);
 insert into Setting values ('A-6888558','Samsung','2015-06-21 14:01:00',15);
 insert into Setting values ('A-6888558','Samsung','2015-06-21 14:05:00',6);	
+insert into Setting values ('A-201201', 'Samsung','2007-03-26 15:00:00',2000);
 
 
 insert into Wears values ('2015-05-10 08:00:00','2015-09-20 08:00:00',13548484,'pan001.healthunit.org'); -- importante para 3c
@@ -285,14 +301,15 @@ insert into Connects values ('2013-04-01 09:00:00','2013-09-25 08:00:00','A-2654
 insert into Connects values ('2014-02-08 11:00:00','2014-05-20 10:00:00','S-12387','Philips','pan003.healthunit.org'); -- importante para 3c
 insert into Connects values ('2015-01-05 16:30:00','2015-03-10 10:00:00','S-58956','Siemens','pan003.healthunit.org'); -- importante para 3c
 insert into Connects values ('2015-04-01 09:00:00','2015-11-25 08:00:00','S-100001','Samsung','pan003.healthunit.org'); -- pan do zé
-insert into Connects values ('2014-11-10 17:00:00','2014-12-15 18:00:00','S-99999','Siemens','pan004.healthunit.org'); -- importante para 3c
+insert into Connects values ('2014-11-10 17:00:00','2014-12-15 18:00:00','S-99999','Siemens','pan004.healthunit.org'); -- importante para 3c wrong
 insert into Connects values ('2015-05-01 10:00:00','2015-12-11 12:00:00','S-85775','Philips','pan004.healthunit.org');	-- importante para 3b
 insert into Connects values ('2015-05-20 13:00:00','2015-12-01 14:00:00','S-12387','Philips','pan005.healthunit.org');	-- importante para 3b
-insert into Connects values ('2015-05-20 14:00:00', '2015-12-01 14:00:00','A-6888558','Samsung','pan005.healthunit.org');
-insert into Connects values ('2014-02-10 08:00:00','2014-12-28 08:00:00','S-58956','Siemens','pan006.healthunit.org'); -- importante para 3c
+insert into Connects values ('2015-05-20 14:00:00','2015-12-01 14:00:00','A-6888558','Samsung','pan005.healthunit.org');
+insert into Connects values ('2014-02-10 08:00:00','2014-12-28 08:00:00','S-58956','Siemens','pan006.healthunit.org'); -- importante para 3c wrong
 insert into Connects values ('2015-01-20 14:00:00','2015-11-30 15:00:00','S-100001','Siemens','pan006.healthunit.org');  -- importante para 3b
 insert into Connects values ('2007-01-10 09:00:00','2007-02-25 08:00:00','S-201201','Samsung','pan007.healthunit.org');
 insert into Connects values ('2007-02-26 09:00:00','2007-03-25 08:00:00','S-201202','Siemens','pan007.healthunit.org');
-insert into Connects values ('2007-03-25 09:00:00','2007-07-20 08:00:00','A-201201','Samsung','pan007.healthunit.org'); 
+insert into Connects values ('2007-03-25 09:00:00','2007-07-20 08:00:00','A-201201','Samsung','pan007.healthunit.org');
+insert into Connects values ('2015-11-20 11:00:00','2015-11-28 01:00:00','S-201201','Samsung','pan008.healthunit.org'); -- testing
 
 
