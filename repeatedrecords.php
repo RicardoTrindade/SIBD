@@ -1,25 +1,28 @@
 <?php session_start(); ?>
 <html>
+<head>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+</head>
 <body>
 <?php
  	$host="db.ist.utl.pt";	// MySQL is hosted in this machine
-	$user="ist173654";	// <== replace istxxx by your IST identity
-	$password="nutr1007";	// <== paste here the password assigned by mysql_reset
+	$user="ist173150";	// <== replace istxxx by your IST identity
+	$password="jjia4691";	// <== paste here the password assigned by mysql_reset
 	$dbname = $user;	// Do nothing here, your database has the same name as your username.
 	$number = $_REQUEST['number'];
  	
- 	echo $number;
+ 	
 
 	$connection = new PDO("mysql:host=" . $host. ";dbname=" . $dbname, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 	
- 	echo("<p>Connected to MySQL database $dbname on $host as user $user</p>\n");
+ 	
 	$sqltest="SELECT number from Patient where number like '%$number%';";
 	$result = $connection->query($sqltest);
 	$bool = $result->rowCount();
 	
 
 	if ($bool==0){
-		echo("Patient was not found");
+		echo("<h2>Patient was not found</h2>");
 	}else{
 
 	$sql = "SELECT r.value,s.units, r.datetime,d.serialnum,d.manufacturer
@@ -45,7 +48,12 @@
 	
 	$num = $result->rowCount();
 
-	echo("<p>$num readings retrieved:</p>\n");
+	echo("<h3><strong>Readings</strong></h3>\n");
+	if($num==0){
+	echo("<h4>There are no Readings<h4>\n");
+	}else{
+
+	echo("<h4><strong>$num readings retrieved:</strong></h4>\n");
 
 	echo("<table border=\"1\">\n");
 	echo("<tr><td>Value</td><td>Units</td><td>Timestamp</td><td>Serial number</td><td>Manufacturer</td></tr>\n");
@@ -65,7 +73,7 @@
 
 	}
 	echo("</table>\n");
-
+	}
 	
 	$sql2="SELECT s.value,a.units,s.datetime,d.serialnum,d.manufacturer
 	FROM Setting as s, Device as d, Actuator as a, Connects as c, Wears as w,Patient as p
@@ -83,7 +91,12 @@
 	$result = $connection->query($sql2);
 	
 	$num = $result->rowCount();
-	echo("<p>$num settings retrieved:</p>\n");
+
+	echo("<h3><strong>Settings</strong></h3>\n");
+	if($num==0){
+	echo("<h4>There are no Settings</h4>\n");
+	}else{
+	echo("<h4><strong>$num settings retrieved:</strong></h4>\n");
 	echo("<table border=\"1\">\n");
 	echo("<tr><td>Value</td><td>Units</td><td>Timestamp</td><td>Serial number</td><td>Manufacturer</td></tr>\n");
 	foreach($result as $row)
@@ -102,14 +115,19 @@
 	}
 	echo("</table>\n");
 
-		
+	}	
         $connection = null;
 	
-	echo("<p>Connection closed.</p>\n");
-	echo("<p>Test completed successfully. Now you know how to connect to your MySQL database.</p>\n");
 }
 ?>
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div>
+<a href="http://web.ist.utl.pt/ist173150/records.html"><strong>Back</strong></a>
+</div>
 
 </body>
 </html>
