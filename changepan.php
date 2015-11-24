@@ -29,7 +29,7 @@
 		$t2=$row['end'];
 	}
 	if($t2<$time_end || $t1>$time_start){
-			echo "Invalid Period";
+			echo "<h2>Invalid Period</h2>";
 	}else{
  $sqlperiod ="INSERT into Period values ('$time_start','$time_end');"; 
  $addtime = $connection->exec($sqlperiod);
@@ -60,9 +60,9 @@ echo("<h2>The Device(s) have been successfully transfered!<h2>");
 ?>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<h4>If you want to associate other device click "Back"<h4>
+
 <div>
-<a href="checkdevices.php"><strong>Back</strong></a>
+<a href="records.html"><strong>Back</strong></a>
 </div>
 </body>
 

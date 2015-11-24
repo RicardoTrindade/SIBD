@@ -54,6 +54,9 @@ and pa.number='$number');";
 	$result = $connection->query($sql);
 	
 	$num = $result->rowCount();
+	if ($num==0){
+		echo "<h3> This patient is wearing a PAN for the first time</h3>";
+	}else{
 
 	echo("<h4>$num devices retrieved:</h4>\n"); // Usar um if para quando so teve uma pan na vida
 
@@ -92,6 +95,7 @@ and pa.number='$number');";
 <p id="p2"><strong>End time :</strong><input type="text" name="timestamp_end" value = <?php echo (" '2016-05-25 14:00:00' " ); ?>> </p>
 <p id="p1"><input type="submit" value ="Submit"></p>
 </fieldset>
+<?php }?>
 </form>
 </body>
 </html>

@@ -126,7 +126,7 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <div>
-<a href="http://web.ist.utl.pt/ist173150/records.html"><strong>Back</strong></a>
+<a href="records.html"><strong>Back</strong></a>
 </div>
 
 </body>

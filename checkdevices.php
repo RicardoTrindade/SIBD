@@ -63,6 +63,12 @@ and pa.name='$name');";
 	$result = $connection->query($sql);
 	
 	$num = $result->rowCount();
+	if ($num==0){
+		echo "<h3>This patient has a PAN for the first time</h3>";
+	}
+		else{
+
+
 	echo("<h4>$num devices retrieved:</h4>\n");
 	?>
 
@@ -86,7 +92,7 @@ and pa.name='$name');";
 	
 	<?php
 	
-	}
+	} 
 	?>
 	</fieldset>
 	<?php		
@@ -98,7 +104,7 @@ and pa.name='$name');";
 <p id="p2"><strong>Start time :</strong><input type="text" name="timestamp_start" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>> </p>
 <p id="p2"><strong>End time :</strong><input type="text" name="timestamp_end" value = <?php echo (" '2016-05-25 14:00:00' " ); ?>> </p>
 <p id="p1"><input type="submit" value ="Submit"></p>
-<?php } ?>
+<?php }} ?>
 </fieldset>
 </form>
 </body>
