@@ -58,7 +58,7 @@ and pa.number='$number');";
 		echo "<h3> This patient is wearing a PAN for the first time</h3>";
 	}else{
 
-	echo("<h4>$num devices retrieved:</h4>\n"); // Usar um if para quando so teve uma pan na vida
+	echo("<h4>$num devices retrieved:</h4>\n"); 
 
 	?>
 

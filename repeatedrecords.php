@@ -5,10 +5,10 @@
 </head>
 <body>
 <?php
- 	$host="db.ist.utl.pt";	// MySQL is hosted in this machine
-	$user="ist173150";	// <== replace istxxx by your IST identity
-	$password="jjia4691";	// <== paste here the password assigned by mysql_reset
-	$dbname = $user;	// Do nothing here, your database has the same name as your username.
+ 	$host="db.ist.utl.pt";	
+	$user="ist173150";	
+	$password="jjia4691";	
+	$dbname = $user;	
 	$number = $_REQUEST['number'];
  	
  	

@@ -92,3 +92,20 @@ from Wears as w, Patient as p
 where w.end>current_timestamp
 and w.patient=p.number
 and p.name='Susana Capucho';	
+
+select d.manufacturer
+from Device as d, Connects as c,Wears as w,Lives as l
+where not exists (
+select m.nut4code
+from Municipality as m
+where m.nut4code not in (
+select l2.muni from Lives as l2, Wears as w, Connects as c, Device as d
+where w.patient=l2.patient
+and c.start>=w.start
+and c.end<=w.end
+and c.pan=w.pan
+and d.serialnum=c.snum
+and d.manufacturer=c.manuf
+and timestampdiff(YEAR, c.end,current_timestamp)<=1 
+and d.description='Scale'
+));

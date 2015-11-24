@@ -239,7 +239,6 @@ insert into Period values ('2007-02-26 09:00:00','2007-03-25 08:00:00'); -- sens
 insert into Period values ('2007-03-25 09:00:00','2007-07-20 08:00:00'); -- actuator period	
 insert into Period values ('1993-01-12 04:00:00','2020-01-06 03:30:00');
 insert into Period values ('2015-03-17 02:00:00','2016-01-20 04:00:00');
-insert into Period values ('2015-11-20 11:00:00','2015-11-28 01:00:00'); -- testing
 
 insert into Reading values ('S-12387','Philips','2015-10-17 07:30:00', 130);
 insert into Reading values ('S-12387','Philips','2015-11-29 07:30:00',  90);
@@ -310,6 +309,5 @@ insert into Connects values ('2015-01-20 14:00:00','2015-11-30 15:00:00','S-1000
 insert into Connects values ('2007-01-10 09:00:00','2007-02-25 08:00:00','S-201201','Samsung','pan007.healthunit.org');
 insert into Connects values ('2007-02-26 09:00:00','2007-03-25 08:00:00','S-201202','Siemens','pan007.healthunit.org');
 insert into Connects values ('2007-03-25 09:00:00','2007-07-20 08:00:00','A-201201','Samsung','pan007.healthunit.org');
-insert into Connects values ('2015-11-20 11:00:00','2015-11-28 01:00:00','S-201201','Samsung','pan008.healthunit.org'); -- testing
 
 
