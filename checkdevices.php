@@ -67,7 +67,7 @@ and pa.name='$name');";
 	?>
 
 	
-	<form action="changepan.php" method="post">
+	<form action="changepan.php" method="get">
 	<h3><strong>Please select the device(s) that you want to transfer to the actual PAN</strong></h3>
 <fieldset id="f1">
 		<?php
@@ -91,13 +91,14 @@ and pa.name='$name');";
 	</fieldset>
 	<?php		
         $connection = null;
-}
+
 ?>
 <h3><strong>Insert the periods of connection for the selected device(s)</strong></h3>
 <fieldset id="f1">
 <p id="p2"><strong>Start time :</strong><input type="text" name="timestamp_start" value = <?php echo (" '2016-05-20 14:00:00' " ); ?>> </p>
 <p id="p2"><strong>End time :</strong><input type="text" name="timestamp_end" value = <?php echo (" '2016-05-25 14:00:00' " ); ?>> </p>
 <p id="p1"><input type="submit" value ="Submit"></p>
+<?php } ?>
 </fieldset>
 </form>
 </body>

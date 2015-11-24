@@ -54,18 +54,16 @@ echo("<h2>The Device(s) have been successfully transfered!<h2>");
 
 }
 	$connection=null;
-<<<<<<< HEAD
+
 }
-	?>
-=======
-	
+
 ?>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <h4>If you want to associate other device click "Back"<h4>
 <div>
-<a href="http://web.ist.utl.pt/ist173150/records.html"><strong>Back</strong></a>
+<a href="checkdevices.php"><strong>Back</strong></a>
 </div>
 </body>
->>>>>>> f1114f548d4b70d28a2a6a4180906dec274c1db1
+
 </html>
